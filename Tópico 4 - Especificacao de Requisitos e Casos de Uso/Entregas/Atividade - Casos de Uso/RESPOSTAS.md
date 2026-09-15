@@ -66,67 +66,62 @@ Abaixo está o código-fonte UML estruturado em `PlantUML` que representa grafic
 
 ```plantuml
 @startuml
-left to right direction
-skinparam packageStyle rectangle
+top to bottom direction
 
 actor Passageiro
 actor "Empresa de Viação" as Viacao
 actor Motorista
 actor "Administrador" as Admin
+
 actor "Sistema de Pagamento" as Pagamento <<System>>
 actor "Sistema de Notificações" as Notificacao <<System>>
 
 rectangle "Plataforma Rodoviária" {
   
-  ' Casos do Passageiro
   usecase "Pesquisar Viagens" as UC1
-  usecase "Comparar Preços e Horários" as UC2
+  usecase "Comparar Preços" as UC2
   usecase "Comprar Passagem" as UC3
   usecase "Gerenciar Passagem" as UC4
   usecase "Cancelar Passagem" as UC5
   usecase "Alterar Passagem" as UC6
   usecase "Solicitar Reembolso" as UC7
   
-  ' Casos da Empresa
-  usecase "Manter Catálogo de Viagens" as UC8
+  usecase "Manter Catálogo" as UC8
   usecase "Acompanhar Vendas" as UC9
-  usecase "Gerenciar Cancelamentos/Reembolsos" as UC10
+  usecase "Gerenciar Cancelamentos" as UC10
   usecase "Efetuar Reembolso" as UC11
   
-  ' Casos do Motorista
-  usecase "Consultar Escala de Viagens" as UC12
-  usecase "Consultar Lista de Passageiros" as UC13
+  usecase "Consultar Escala" as UC12
+  usecase "Consultar Passageiros" as UC13
   
-  ' Casos do Admin
-  usecase "Monitorar Operações do Sistema" as UC14
+  usecase "Monitorar Operações" as UC14
   usecase "Gerar Relatórios" as UC15
-  usecase "Gerar Relatório Financeiro" as UC16
-  usecase "Gerar Relatório Operacional" as UC17
+  usecase "Relatório Financeiro" as UC16
+  usecase "Relatório Operacional" as UC17
   
-  ' Casos Intermediários de Integração Externa
-  usecase "Efetuar Pagamento Online" as UC18
+  usecase "Pagamento Online" as UC18
   usecase "Notificar Usuário" as UC19
 }
 
-' Ligações Passageiro
 Passageiro --> UC1
 Passageiro --> UC3
 Passageiro --> UC4
 
-' Ligações Empresa
 Viacao --> UC8
 Viacao --> UC9
 Viacao --> UC10
 
-' Ligações Motorista
 Motorista --> UC12
 Motorista --> UC13
 
-' Ligações Admin
 Admin --> UC14
 Admin --> UC15
 
-' Relacionamentos Extend e Include
+' Relações dos Atores Externos
+UC18 --> Pagamento
+UC19 --> Notificacao
+
+' Extend e Include
 UC2 .> UC1 : <<extend>>
 UC7 .> UC5 : <<extend>>
 
@@ -140,10 +135,5 @@ UC6 -up-|> UC4
 
 UC16 -up-|> UC15
 UC17 -up-|> UC15
-
-' Ligações Atores Externos
-UC18 <-- Pagamento
-UC19 <-- Notificacao
-
 @enduml
 ```

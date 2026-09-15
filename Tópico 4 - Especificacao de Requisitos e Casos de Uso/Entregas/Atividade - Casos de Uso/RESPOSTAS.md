@@ -66,12 +66,12 @@ Abaixo está o código-fonte UML estruturado em `PlantUML` que representa grafic
 
 ```plantuml
 @startuml
-top to bottom direction
+left to right direction
 
 actor Passageiro
 actor "Empresa de Viação" as Viacao
 actor Motorista
-actor "Administrador" as Admin
+actor Administrador
 
 actor "Sistema de Pagamento" as Pagamento <<System>>
 actor "Sistema de Notificações" as Notificacao <<System>>
@@ -114,14 +114,10 @@ Viacao --> UC10
 Motorista --> UC12
 Motorista --> UC13
 
-Admin --> UC14
-Admin --> UC15
+Administrador --> UC14
+Administrador --> UC15
 
-' Relações dos Atores Externos
-UC18 --> Pagamento
-UC19 --> Notificacao
-
-' Extend e Include
+' Relacionamentos
 UC2 .> UC1 : <<extend>>
 UC7 .> UC5 : <<extend>>
 
@@ -129,11 +125,14 @@ UC3 ..> UC18 : <<include>>
 UC3 ..> UC19 : <<include>>
 UC10 ..> UC11 : <<include>>
 
-' Heranças
 UC5 -up-|> UC4
 UC6 -up-|> UC4
 
 UC16 -up-|> UC15
 UC17 -up-|> UC15
+
+UC18 --> Pagamento
+UC19 --> Notificacao
+
 @enduml
 ```

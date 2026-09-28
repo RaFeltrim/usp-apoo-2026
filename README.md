@@ -59,23 +59,44 @@ APOO - USP/
 │       │   ├── Rafael_Feltrim_Entrega_Observer.pdf           # [ENTREGA 2] Relatório do padrão Observer
 │       │   ├── Rafael_Feltrim_Atividade2_Observer.zip        # Pacote compactado da entrega individual
 │       │   └── 📁 Apresentacao-Web/                          # Aplicação interativa em HTML5/CSS3/JS
-│       │       ├── index.html                                # Slides interativos da apresentação
-│       │       ├── documento-apoio.html                      # Documentação técnica formatada
-│       │       ├── styles.css / script.js / print.css
-│       │       └── generate_pdf.js                           # Script Puppeteer para exportação PDF
 │       │
 │       ├── 📁 02-Atividade-Comparacao-Categorias/
 │       │   ├── README.md                                     # Matriz de comparação dos padrões comportamentais
 │       │   ├── Relatorio_Discussao_Comportamentais_Grupo.pdf  # [ENTREGA 3] Relatório da discussão em sala (Jigsaw)
-│       │   ├── relatorio-discussao.html                      # Versão HTML para compilação PDF
-│       │   ├── Resumo_Discussao_Comportamentais_Turma10h.md  # Síntese em Markdown
-│       │   └── generate_pdf.js                               # Automação Puppeteer
+│       │   └── relatorio-discussao.html
 │       │
 │       └── 📁 03-Atividade-Comparacao-Categorias-Completa/
 │           ├── README.md                                     # Diretrizes da Atividade 3 (GoF Parte 2)
-│           ├── Rafael_Feltrim_Atividade3_Comparacao_Categorias_GoF.pdf # [ENTREGA 4] Relatório Individual Completo (3 categorias, 9 padrões, 3 tabelas)
-│           ├── relatorio-gof-completo.html                   # Versão HTML estilizada
-│           └── generate_pdf.js                               # Automação Puppeteer
+│           ├── Rafael_Feltrim_Atividade3_Comparacao_Categorias_GoF.pdf # [ENTREGA 4] Relatório Individual Completo
+│           └── relatorio-gof-completo.html
+│
+├── 📁 Tópico 4 - Especificacao de Requisitos e Casos de Uso/  # (Semanas 5 e 6)
+│   ├── README.md                                         # Resumo de requisitos, UC e atividades
+│   ├── 📁 Material de Apoio/
+│   │   ├── Aula 06 - Análise e Especificação de Requisitos e UC.pdf
+│   │   ├── Aula 0 6- Anexo A - Descrição do Modelo de Qualidade ISO_IEC 25010 - SQUARE.pdf
+│   │   ├── Aula 07 - Casos de Uso - relações.pdf
+│   │   ├── Aula 8 - Casos de uso - prática.pdf
+│   │   └── Aula 8 - Material Complementar - Diagrama de Atividades.pdf
+│   └── 📁 Entregas/
+│       ├── 📁 Atividade - Casos de Uso/
+│       │   ├── Atividade - casos de uso.docx.pdf             # [ENTREGA 5] Modelagem de Casos de Uso (Plataforma Rodoviária)
+│       │   ├── Atividade – Diagrama de Casos de Uso.drawio.pdf
+│       │   └── RESPOSTAS.md
+│       │
+│       └── 📁 Atividade - Descricao Textual e Diagrama de Atividades/
+│           ├── Descrição Textual de Casos de Uso e Diagrama de Atividades - Rafael Feltrim.pdf # [ENTREGA 6] Documento consolidado
+│           ├── Comprar Passagem.pdf                          # Diagrama de UC refinado
+│           ├── Diagrama de Atividades.pdf                    # Diagrama de atividades (Swimlanes)
+│           ├── Atividade – Descrição Textual de Casos de Uso e Diagrama de Atividades.docx.pdf
+│           └── RESPOSTAS_ATIVIDADE_2.md
+│
+├── 📁 Tópico 5 - Componentes, Modelo Conceitual e Classes/    # (Semana 7)
+│   ├── README.md                                         # Análise & Design, Padrões Arquiteturais e Classes
+│   ├── 📁 Material de Apoio/
+│   │   └── Aula 09 - parte 1 - Elementos de projeto de Software (Arquitetura, componentes, classes, objetos).pdf
+│   ├── 📁 Entregas/
+│   └── 📁 Exercícios e Laboratórios/
 │
 ├── .gitignore                                            # Filtro de dependências e arquivos temporários
 └── README.md                                             # Portal central de navegação
@@ -83,14 +104,17 @@ APOO - USP/
 
 ---
 
-## 📚 Mapa de Atividades & Entregas da Disciplina
+## 📚 Mapa Geral de Atividades & Entregas da Disciplina
 
-| Atividade | Tópico Abordado | Status | Arquivo Final de Entrega |
-| :--- | :--- | :--- | :--- |
-| **Atividade 1** | Resumo Cap. 2 Eng. Software Moderna (Processos de Software) | ✅ **Concluída** | [`Atividade 1 - Resumo.pdf`](./Tópico%202%20-%20Processos%20Desenvolvimento%20Software/Entregas/Atividade%201%20-%20Resumo.pdf) |
-| **Atividade 2** | Estudo Individual de Padrão (Padrão Observer) | ✅ **Concluída** | [`Rafael_Feltrim_Entrega_Observer.pdf`](./Tópico%203%20-%20Padroes%20de%20Projeto%20GoF/Entregas/01-Padrao-Observer/Rafael_Feltrim_Entrega_Observer.pdf) |
-| **Atividade em Sala (Jigsaw)** | Comparação de Padrões Comportamentais (Mediator, Observer, CoR) | ✅ **Concluída** | [`Relatorio_Discussao_Comportamentais_Grupo.pdf`](./Tópico%203%20-%20Padroes%20de%20Projeto%20GoF/Entregas/02-Atividade-Comparacao-Categorias/Relatorio_Discussao_Comportamentais_Grupo.pdf) |
-| **Atividade 3 (GoF Parte 2)** | Estudo Comparativo Completo: 3 Categorias, 9 Padrões e 3 Tabelas | ✅ **Concluída** | [`Rafael_Feltrim_Atividade3_Comparacao_Categorias_GoF.pdf`](./Tópico%203%20-%20Padroes%20de%20Projeto%20GoF/Entregas/03-Atividade-Comparacao-Categorias-Completa/Rafael_Feltrim_Atividade3_Comparacao_Categorias_GoF.pdf) |
+| Atividade | Módulo / Tópico | Prazo | Status | Arquivo Final de Entrega |
+| :--- | :--- | :---: | :---: | :--- |
+| **Atividade 1** | Resumo Cap. 2 Eng. Software Moderna (Processos de Software) | 17/08/2026 | ✅ **Entregue** | [`Atividade 1 - Resumo.pdf`](./Tópico%202%20-%20Processos%20Desenvolvimento%20Software/Entregas/Atividade%201%20-%20Resumo.pdf) |
+| **Atividade 2** | Estudo Individual de Padrão (Padrão Observer) | 24/08/2026 | ✅ **Entregue** | [`Rafael_Feltrim_Entrega_Observer.pdf`](./Tópico%203%20-%20Padroes%20de%20Projeto%20GoF/Entregas/01-Padrao-Observer/Rafael_Feltrim_Entrega_Observer.pdf) |
+| **Atividade em Sala (Jigsaw)** | Comparação de Padrões Comportamentais (Mediator, Observer, CoR) | 24/08/2026 | ✅ **Entregue** | [`Relatorio_Discussao_Comportamentais_Grupo.pdf`](./Tópico%203%20-%20Padroes%20de%20Projeto%20GoF/Entregas/02-Atividade-Comparacao-Categorias/Relatorio_Discussao_Comportamentais_Grupo.pdf) |
+| **Atividade 3 (GoF Parte 2)** | Estudo Comparativo Completo: 3 Categorias, 9 Padrões e 3 Tabelas | 31/08/2026 | ✅ **Entregue** | [`Rafael_Feltrim_Atividade3_Comparacao_Categorias_GoF.pdf`](./Tópico%203%20-%20Padroes%20de%20Projeto%20GoF/Entregas/03-Atividade-Comparacao-Categorias-Completa/Rafael_Feltrim_Atividade3_Comparacao_Categorias_GoF.pdf) |
+| **Atividade 4 (Casos de Uso)** | Diagrama Geral de Casos de Uso (Sistema Rodoviário / ClickBus) | 21/09/2026 | ✅ **Entregue** | [`Atividade - casos de uso.docx.pdf`](./Tópico%204%20-%20Especificacao%20de%20Requisitos%20e%20Casos%20de%20Uso/Entregas/Atividade%20-%20Casos%20de%20Uso/Atividade%20-%20casos%20de%20uso.docx.pdf) |
+| **Atividade 5 (Texto & Atividades)** | Descrição Textual de Casos de Uso e Diagrama de Atividades | 28/09/2026 | ✅ **Entregue** | [`Descrição Textual de Casos de Uso e Diagrama de Atividades - Rafael Feltrim.pdf`](./Tópico%204%20-%20Especificacao%20de%20Requisitos%20e%20Casos%20de%20Uso/Entregas/Atividade%20-%20Descricao%20Textual%20e%20Diagrama%20de%20Atividades/Descrição%20Textual%20de%20Casos%20de%20Uso%20e%20Diagrama%20de%20Atividades%20-%20Rafael%20Feltrim.pdf) |
+| **Tópico 5 (Aula 09)** | Componentes, Modelo Conceitual e Classes de Domínio | *A definir* | ⏳ **Aguardando** | *Nenhuma tarefa cadastrada no Moodle até o momento.* |
 
 ---
 

@@ -1,9 +1,9 @@
 # Atividade – Identificação de Componentes e Classes do Sistema
 
-**Disciplina:** SSC0124 — Análise e Projeto Orientados a Objetos (APOO)  
-**Docente:** Profa. Dra. Lina Garcés  
-**Aluno:** Rafael Feltrim — **N° USP:** 15942812  
-**Contexto:** Plataforma de Venda de Passagens Rodoviárias Integrada (ClickBus)  
+**Disciplina:** SSC0124 — Análise e Projeto Orientados a Objetos (APOO)
+**Docente:** Profa. Dra. Lina Garcés
+**Aluno:** Rafael Feltrim — **N° USP:** 15942812
+**Contexto:** Plataforma de Venda de Passagens Rodoviárias Integrada (ClickBus)
 
 ---
 
@@ -26,13 +26,13 @@ Aplicando os princípios de **Alta Coesão** e **Responsabilidade Única (SRP)**
 
 ## 2. Casos de Uso sob Responsabilidade de Cada Componente
 
-| Componente Explícito | Casos de Uso sob sua Responsabilidade | Descrição do Domínio |
-| :--- | :--- | :--- |
-| **`ComponenteCatalogo`** | • `Pesquisar Viagens`<br>• `Comparar Preços e Horários`<br>• `Manter Catálogo de Viagens` (Rotas, Horários, Preços, Ônibus) | Consulta e manutenção da malha viária e disponibilidade de horários. |
-| **`ComponenteVendas`** | • `Comprar Passagem`<br>• `Selecionar Assentos`<br>• `Realizar Reserva Temporária`<br>• `Efetuar Pagamento Online`<br>• `Notificar Usuário` | Concretização comercial da venda, reserva de assentos e cobrança. |
-| **`ComponentePosVenda`** | • `Gerenciar Passagem` (Base)<br>• `Cancelar Passagem`<br>• `Alterar Passagem`<br>• `Solicitar Reembolso`<br>• `Gerenciar Cancelamentos e Reembolsos`<br>• `Efetuar Reembolso` | Atendimento pós-compra, políticas de remarcação e estornos. |
-| **`ComponenteOperacional`** | • `Consultar Escala de Viagens`<br>• `Consultar Lista de Passageiros`<br>• `Acompanhar Vendas das Viagens` | Acompanhamento logístico e apoio ao motorista/empresa. |
-| **`ComponenteGestao`** | • `Monitorar Operações do Sistema`<br>• `Gerar Relatórios` (Base)<br>• `Gerar Relatório Financeiro`<br>• `Gerar Relatório Operacional` | Governança corporativa, auditoria e inteligência de negócios. |
+| Componente Explícito               | Casos de Uso sob sua Responsabilidade                                                                                                                                       | Descrição do Domínio                                                  |
+| :---------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :----------------------------------------------------------------------- |
+| **`ComponenteCatalogo`**    | •`Pesquisar Viagens`• `Comparar Preços e Horários`• `Manter Catálogo de Viagens` (Rotas, Horários, Preços, Ônibus)                                           | Consulta e manutenção da malha viária e disponibilidade de horários. |
+| **`ComponenteVendas`**      | •`Comprar Passagem`• `Selecionar Assentos`• `Realizar Reserva Temporária`• `Efetuar Pagamento Online`• `Notificar Usuário`                                 | Concretização comercial da venda, reserva de assentos e cobrança.     |
+| **`ComponentePosVenda`**    | •`Gerenciar Passagem` (Base)• `Cancelar Passagem`• `Alterar Passagem`• `Solicitar Reembolso`• `Gerenciar Cancelamentos e Reembolsos`• `Efetuar Reembolso` | Atendimento pós-compra, políticas de remarcação e estornos.          |
+| **`ComponenteOperacional`** | •`Consultar Escala de Viagens`• `Consultar Lista de Passageiros`• `Acompanhar Vendas das Viagens`                                                                  | Acompanhamento logístico e apoio ao motorista/empresa.                  |
+| **`ComponenteGestao`**      | •`Monitorar Operações do Sistema`• `Gerar Relatórios` (Base)• `Gerar Relatório Financeiro`• `Gerar Relatório Operacional`                                  | Governança corporativa, auditoria e inteligência de negócios.         |
 
 ---
 
@@ -53,6 +53,7 @@ Os componentes implícitos são subsistemas técnicos e de infraestrutura indisp
 ## 4. Diagrama de Componentes UML seguindo o Padrão Arquitetural MVC
 
 Conforme as diretrizes da Aula 09 (Slides 24 e 28), o sistema é estruturado em camadas no padrão **MVC**:
+
 - **View (`<<view>>`):** Interfaces dedicadas para cada perfil de usuário.
 - **Controller (`<<controller>>`):** Orquestradores que recebem requisições da View, aplicam regras de negócio e acionam o Model.
 - **Model (`<<model>>`):** Componentes especialistas do domínio do problema.
@@ -148,10 +149,11 @@ MPV ..> GP : <<use>> (reembolso)
 
 ## 5. Seleção de Componente, Identificação de Classes de Domínio e Atributos
 
-**Componente Selecionado:** `ComponenteVendas` (Vendas e Passagens)  
+**Componente Selecionado:** `ComponenteVendas` (Vendas e Passagens)
 *Justificativa:* É o núcleo de valor do negócio, responsável pelo checkout, concorrência de poltronas, transações financeiras e emissão de bilhetes.
 
 ### a. Identificação das Classes por Categoria de Domínio (Diretrizes da Aula 09):
+
 - **Coisas Tangíveis / Físicas:** `Onibus`, `Poltrona`
 - **Perfis de Usuários / Atores de Domínio:** `Passageiro`, `EmpresaViacao`
 - **Transações Comerciais:** `CompraPassagem`, `Pagamento`, `ReservaPoltrona`
@@ -235,8 +237,9 @@ MPV ..> GP : <<use>> (reembolso)
 ## 6. Diagrama de Modelo Conceitual em UML (Classes de Domínio e Relacionamentos)
 
 O diagrama abaixo contempla:
+
 - **Associações** com multiplicidades rigorosamente definidas (`1`, `1..*`, `0..1`, etc.).
-- **Composição (`◆` / vínculo forte):** 
+- **Composição (`◆` / vínculo forte):**
   - `CompraPassagem` é composta por `1..* BilhetePassagem` (os bilhetes emitidos pertencem exclusivamente àquela compra e não têm ciclo de vida autônomo sem ela).
   - `Onibus` é composto por `1..* Poltrona` (as poltronas fazem parte física da estrutura do veículo).
 - **Agregação (`◇` / vínculo fraco):**

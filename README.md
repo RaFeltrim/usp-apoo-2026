@@ -50,7 +50,8 @@ APOO - USP/
 ├── 📁 Tópico 3 - Padroes de Projeto GoF/                 # (Semanas 3 e 4)
 │   ├── README.md                                         # Panorama dos Padrões GoF
 │   ├── 📁 Exercícios e Laboratórios/
-│   │   └── Atividade 2 - Padrões GoF - primeira parte.pdf
+│   │   ├── Atividade 2 -  Padrões GoF - primeira parte.pdf  # Enunciado Estudo Individual
+│   │   └── Atividade 3 -  Padrões GoF - segunda parte.pdf   # Enunciado Comparativo Categorias
 │   ├── 📁 Material de Apoio/
 │   │   └── Aula - Jigsaw - Padrões GoF - 10h.pdf             # Slides da dinâmica Jigsaw em sala
 │   └── 📁 Entregas/
@@ -97,8 +98,11 @@ APOO - USP/
 │   │   └── Aula 09 - parte 1 - Elementos de projeto de Software (Arquitetura, componentes, classes, objetos).pdf
 │   ├── 📁 Entregas/
 │   │   └── 📁 Atividade - Identificacao de Componentes e Classes/
-│   │       ├── Atividade – Identificação de componentes e classes do sistema.docx-1.pdf # Enunciado
-│   │       └── RESPOSTAS_ATIVIDADE_3.md                  # [ENTREGA 7] Resolução completa e diagramas PlantUML
+│   │       ├── Atividade – Identificação de Componentes e Classes do Sistema.pdf # [ENTREGA 7] Documento consolidado
+│   │       ├── Atividade – Identificação de componentes e classes do sistema.docx-1.pdf # Enunciado oficial
+│   │       ├── UML-Diagrama de Componentes UML seguindo o Padrão Arquitetural MVC.drawio.png # Diagrama MVC
+│   │       ├── UML-Atividade_ Plataforma de Venda de Passagens Rodoviárias Integrada .drawio.png # Modelo Conceitual
+│   │       └── RESPOSTAS_ATIVIDADE_3.md                  # Resolução técnica completa e scripts PlantUML
 │   └── 📁 Exercícios e Laboratórios/
 │
 ├── .gitignore                                            # Filtro de dependências e arquivos temporários
@@ -117,7 +121,7 @@ APOO - USP/
 | **Atividade 3 (GoF Parte 2)** | Estudo Comparativo Completo: 3 Categorias, 9 Padrões e 3 Tabelas | 31/08/2026 | ✅ **Entregue** | [`Rafael_Feltrim_Atividade3_Comparacao_Categorias_GoF.pdf`](./Tópico%203%20-%20Padroes%20de%20Projeto%20GoF/Entregas/03-Atividade-Comparacao-Categorias-Completa/Rafael_Feltrim_Atividade3_Comparacao_Categorias_GoF.pdf) |
 | **Atividade 4 (Casos de Uso)** | Diagrama Geral de Casos de Uso (Sistema Rodoviário / ClickBus) | 21/09/2026 | ✅ **Entregue** | [`Atividade - casos de uso.docx.pdf`](./Tópico%204%20-%20Especificacao%20de%20Requisitos%20e%20Casos%20de%20Uso/Entregas/Atividade%20-%20Casos%20de%20Uso/Atividade%20-%20casos%20de%20uso.docx.pdf) |
 | **Atividade 5 (Texto & Atividades)** | Descrição Textual de Casos de Uso e Diagrama de Atividades | 28/09/2026 | ✅ **Entregue** | [`Descrição Textual de Casos de Uso e Diagrama de Atividades - Rafael Feltrim.pdf`](./Tópico%204%20-%20Especificacao%20de%20Requisitos%20e%20Casos%20de%20Uso/Entregas/Atividade%20-%20Descricao%20Textual%20e%20Diagrama%20de%20Atividades/Descrição%20Textual%20de%20Casos%20de%20Uso%20e%20Diagrama%20de%20Atividades%20-%20Rafael%20Feltrim.pdf) |
-| **Atividade 6 (Componentes & Classes)** | Identificação de Componentes, MVC e Modelo Conceitual de Classes | 12/10/2026 | 🚀 **Pronta para Envio** | [`RESPOSTAS_ATIVIDADE_3.md`](./Tópico%205%20-%20Componentes,%20Modelo%20Conceitual%20e%20Classes/Entregas/Atividade%20-%20Identificacao%20de%20Componentes%20e%20Classes/RESPOSTAS_ATIVIDADE_3.md) |
+| **Atividade 6 (Componentes & Classes)** | Identificação de Componentes, MVC e Modelo Conceitual de Classes | 12/10/2026 | ✅ **Entregue** | [`Atividade – Identificação de Componentes e Classes do Sistema.pdf`](./Tópico%205%20-%20Componentes,%20Modelo%20Conceitual%20e%20Classes/Entregas/Atividade%20-%20Identificacao%20de%20Componentes%20e%20Classes/Atividade%20–%20Identificação%20de%20Componentes%20e%20Classes%20do%20Sistema.pdf) |
 
 ---
 

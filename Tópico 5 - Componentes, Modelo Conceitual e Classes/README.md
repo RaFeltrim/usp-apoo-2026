@@ -7,7 +7,12 @@ Módulo focado na transição da etapa de requisitos para o projeto (design) de 
 ## 🔗 Links e Recursos do e-Disciplinas
 
 - **Seção Moodle:** [Diagrama de Componentes, Diagrama de modelo conceitual, Diagrama de Classes e Associações entre Classes](https://edisciplinas.usp.br/course/section.php?id=6991982)
-- **Arquivo da Aula:** [`Aula 09 - parte 1 - Elementos de projeto de Software (Arquitetura, componentes, classes, objetos).pdf`](./Material%20de%20Apoio/Aula%2009%20-%20parte%201%20-%20Elementos%20de%20projeto%20de%20Software%20(Arquitetura,%20componentes,%20classes,%20objetos).pdf)
+- **Materiais Disponibilizados:**
+  - [`Aula 09 - parte 1 - Elementos de projeto de Software (Arquitetura, componentes, classes, objetos).pdf`](<./Material%20de%20Apoio/Aula%2009%20-%20parte%201%20-%20Elementos%20de%20projeto%20de%20Software%20(Arquitetura,%20componentes,%20classes,%20objetos).pdf>) *(Disponível localmente)*
+  - [Aula 09 - Parte 2 - Associações entre Classes de Domínio (Moodle)](https://edisciplinas.usp.br/mod/resource/view.php?id=6594930) *(Pendente download local em `./Material de Apoio/`)*
+  - [Aula 09 - videoaula 1 - Identificação de classes (Moodle)](https://edisciplinas.usp.br/mod/resource/view.php?id=6602399)
+  - [Aula 09 - videoaula 2 - Modelo conceitual (Moodle)](https://edisciplinas.usp.br/mod/resource/view.php?id=6602402)
+  - [`modelo-conceitual-biblioteca.puml`](./Material%20de%20Apoio/modelo-conceitual-biblioteca.puml) — Código PlantUML decodificado do link oficial [`codigo plantuml - modelo conceitual (classes do sistema)`](https://edisciplinas.usp.br/mod/resource/view.php?id=6602411)
 - **Tarefa no Moodle:** [Atividade – Identificação de componentes e classes do sistema](https://edisciplinas.usp.br/mod/assign/view.php?id=6594985)
 
 ---
@@ -16,7 +21,7 @@ Módulo focado na transição da etapa de requisitos para o projeto (design) de 
 
 ### [Entrega 7] Atividade – Identificação de Componentes e Classes do Sistema
 - **Pasta:** [`./Entregas/Atividade - Identificacao de Componentes e Classes/`](./Entregas/Atividade%20-%20Identificacao%20de%20Componentes%20e%20Classes/)
-- **Período:** 28 de setembro de 2026 a 12 de outubro de 2026, 08:00
+- **Período:** 28 de setembro de 2026 a 14 de outubro de 2026, 23:59 *(prazo atualizado no Moodle)*
 - **Escopo:**
   1. Identificação dos componentes explícitos agrupando Casos de Uso por afinidade de domínio e responsabilidade única.
   2. Mapeamento de Casos de Uso por componente.
@@ -25,8 +30,11 @@ Módulo focado na transição da etapa de requisitos para o projeto (design) de 
   5. Identificação detalhada de classes de domínio e atributos tipados (sem métodos) para o `ComponenteVendas`.
   6. Diagrama de Modelo Conceitual UML com multiplicidades, composição (`◆`), agregação (`◇`) e associações.
 - **Entregáveis:**
-  - [`Atividade – Identificação de componentes e classes do sistema.docx-1.pdf`](./Entregas/Atividade%20-%20Identificacao%20de%20Componentes%20e%20Classes/Atividade%20–%20Identificação%20de%20componentes%20e%20classes%20do%20sistema.docx-1.pdf) (Enunciado oficial)
-  - [`RESPOSTAS_ATIVIDADE_3.md`](./Entregas/Atividade%20-%20Identificacao%20de%20Componentes%20e%20Classes/RESPOSTAS_ATIVIDADE_3.md) (Resolução completa com texto técnico e códigos PlantUML para diagrams.net)
+  - [`Atividade – Identificação de Componentes e Classes do Sistema.pdf`](./Entregas/Atividade%20-%20Identificacao%20de%20Componentes%20e%20Classes/Atividade%20–%20Identificação%20de%20Componentes%20e%20Classes%20do%20Sistema.pdf) *(Documento final consolidado para envio)*
+  - [`UML-Diagrama de Componentes UML seguindo o Padrão Arquitetural MVC.drawio.png`](./Entregas/Atividade%20-%20Identificacao%20de%20Componentes%20e%20Classes/UML-Diagrama%20de%20Componentes%20UML%20seguindo%20o%20Padrão%20Arquitetural%20MVC.drawio.png) *(Diagrama MVC exportado)*
+  - [`UML-Atividade_ Plataforma de Venda de Passagens Rodoviárias Integrada .drawio.png`](./Entregas/Atividade%20-%20Identificacao%20de%20Componentes%20e%20Classes/UML-Atividade_%20Plataforma%20de%20Venda%20de%20Passagens%20Rodoviárias%20Integrada%20.drawio.png) *(Diagrama de Modelo Conceitual exportado)*
+  - [`Atividade – Identificação de componentes e classes do sistema.docx-1.pdf`](./Entregas/Atividade%20-%20Identificacao%20de%20Componentes%20e%20Classes/Atividade%20–%20Identificação%20de%20componentes%20e%20classes%20do%20sistema.docx-1.pdf) *(Enunciado oficial)*
+  - [`RESPOSTAS_ATIVIDADE_3.md`](./Entregas/Atividade%20-%20Identificacao%20de%20Componentes%20e%20Classes/RESPOSTAS_ATIVIDADE_3.md) *(Resolução completa com texto técnico e códigos PlantUML)*
 
 ---
 
@@ -54,10 +62,10 @@ Módulo focado na transição da etapa de requisitos para o projeto (design) de 
 
 ### 4. Relacionamentos entre Classes
 - **Associação:** Conexão semântica direta com especificação de **multiplicidade** (`1`, `1..*`, `0..*`).
-- **Herança (Generalização/Especialização):** Reuso de estrutura e polimorfismo. Discussão sobre herança simples e múltipla.
+- **Herança (Generalização/Especialização):** Reuso de estrutura e polimorfismo. Discussão sobre herança simples e múltipla (ex.: `Professor` e `Estudante` herdando de `Usuario` e `UsuarioUSP` no [`modelo-conceitual-biblioteca.puml`](./Material%20de%20Apoio/modelo-conceitual-biblioteca.puml)).
 - **Agregação (`◇` losango vazio):** Vínculo fraco ("todo-parte"), onde a parte pode existir independentemente do todo.
 - **Composição (`◆` losango preenchido):** Vínculo forte ("todo-parte"), onde a parte não existe ou não tem significado sem o todo.
 
-### 5. Modelo Conceitual do Sistema
+### 5. Modelo Conceitual do Sistema e Persistência
 - União dos modelos de classes de todos os componentes mantendo integridade conceitual.
-- Serve de subsídio direto para o Modelo Entidade-Relacionamento (MER) e abordagens MDD (*Model Driven Development*).
+- Serve de subsídio direto para o Modelo Entidade-Relacionamento (MER), mapeamento objeto-relacional (ex.: Django Models / ORM, conforme Aula 09 do cronograma) e abordagens MDD (*Model Driven Development*).

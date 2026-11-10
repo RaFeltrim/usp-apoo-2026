@@ -1,0 +1,106 @@
+@startuml
+class UsuarioUSP{
+    Integer noUSP;
+}
+
+class Usuario{
+    String email;
+    String nome;
+    String endereco;
+    String telefone;
+    String senha;
+}
+
+class Professor{
+    Integer idUnidade;
+}
+
+class Estudante{
+    Date validadeMatricula;
+}
+
+class UsuarioExterno{
+    Integer cpf;
+    String rg;
+}
+
+class RegistroEmprestimo{
+    Date dataEmprestimo;
+    Date dataDevolucao:
+    Integer diasAtraso;
+}
+
+class PublicacaoSeriada{
+    String titulo;
+    List <Autor> autor;
+    Date dataPublicacao;
+    String publicador;
+    Integer numPaginas;
+}
+
+class Livro{
+    String editor;
+    String ISSN;
+    String edicao;
+}
+
+class Artigo{
+    Integer volume;
+    Integer serie;
+    Integer numero;
+}
+
+class Autor{
+    String nome;
+}
+
+class Biblioteca{
+    String endereco;
+    String cep;
+}
+
+class Localizacao{
+    Integer andar;
+    String corredor;
+    String prateleira;
+    Integer numero;
+}
+
+class UnidadeUniversidade{
+    String nome;
+    String endereco;
+    String cep;
+}
+
+Aquisicao o-- "1" Usuario
+Aquisicao *-- "1" TipoAquisicao
+
+PublicacaoSeriada <|-- Livro
+PublicacaoSeriada <|-- Artigo
+
+RegistroAquisicao o-- "1" Aquisicao
+RegistroAquisicao o-- "1" PublicacaoSeriada 
+
+PublicacaoSeriada *-- "1..*" Autor 
+PublicacaoSeriada *-- "1" Localizacao 
+PublicacaoSeriada --o Acervo 
+PublicacaoSeriada *-- Estado
+
+Biblioteca *-- "1" Acervo
+Biblioteca o-- "1" UnidadeUniversidade
+
+Usuario <|-- UsuarioExterno
+Usuario <|-- Professor
+Usuario <|-- Estudante
+
+UsuarioUSP <|-- Professor
+UsuarioUSP <|-- Estudante
+
+Administrador "1" -- "1" RegistroAquisicao: realiza >
+Atendente "1" -- "1" RegistroEmprestimo: realiza >
+
+Professor "1" -- "1" UnidadeUniversidade: pertence a >
+
+RegistroEmprestimo o-- "1..15" PublicacaoSeriada
+RegistroEmprestimo o-- "1" Usuario
+@enduml

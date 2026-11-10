@@ -1,12 +1,25 @@
-# SSC0124 — Análise e Projeto Orientados a Objetos (2026)
+<div align="center">
 
-[![ICMC - USP](https://img.shields.io/badge/USP-ICMC-blue.svg)](https://www.icmc.usp.br/)
-[![Department](https://img.shields.io/badge/Departamento-SSC-informational.svg)](https://www.icmc.usp.br/departamentos/ssc)
-[![Course](https://img.shields.io/badge/Disciplina-SSC0124-brightgreen.svg)](https://edisciplinas.usp.br/course/view.php?id=143121)
-[![Status](https://img.shields.io/badge/Status-Em%20Andamento-success.svg)]()
+# 🎓 SSC0124 — Análise e Projeto Orientados a Objetos
 
-Repositório central de estudos, anotações, trabalhos práticos, resumos teóricos e materiais de apoio da disciplina **SSC0124 - Análise e Projeto Orientados a Objetos (APOO)**, ministrada no Instituto de Ciências Matemáticas e de Computação (**ICMC - USP**).
+### *Estudos e entregas · ICMC USP · 2026*
 
+[![USP ICMC](https://img.shields.io/badge/USP-ICMC-00529B?style=for-the-badge)](https://www.icmc.usp.br/)
+[![Disciplina SSC0124](https://img.shields.io/badge/Disciplina-SSC0124-2ea44f?style=for-the-badge)](https://edisciplinas.usp.br/course/view.php?id=143121)
+[![Conteúdo acadêmico](https://img.shields.io/badge/Conteúdo-Acadêmico-8A2BE2?style=for-the-badge)](#-estrutura-oficial-do-repositório-por-módulos--semanas)
+[![Autor Rafael Feltrim](https://img.shields.io/badge/Autor-Rafael%20Feltrim-0A66C2?style=for-the-badge)](https://github.com/RaFeltrim)
+
+<p align="center">
+  <strong>Repositório de estudos, anotações, trabalhos práticos, resumos teóricos e materiais de apoio da disciplina SSC0124 — Análise e Projeto Orientados a Objetos, do Instituto de Ciências Matemáticas e de Computação da Universidade de São Paulo.</strong>
+</p>
+
+[Informações gerais](#-informações-gerais) •
+[Estrutura do repositório](#-estrutura-oficial-do-repositório-por-módulos--semanas) •
+[Atividades e entregas](#-mapa-geral-de-atividades--entregas-da-disciplina) •
+[Como navegar](#-como-navegar) •
+[Autoria](#-autor)
+
+</div>
 ---
 
 ## 📌 Informações Gerais
@@ -92,10 +105,11 @@ APOO - USP/
 │           ├── Atividade – Descrição Textual de Casos de Uso e Diagrama de Atividades.docx.pdf
 │           └── RESPOSTAS_ATIVIDADE_2.md
 │
-├── 📁 Tópico 5 - Componentes, Modelo Conceitual e Classes/    # (Semana 7)
+├── 📁 Tópico 5 - Componentes, Modelo Conceitual e Classes/    # (Semanas 7 a 9)
 │   ├── README.md                                         # Análise & Design, Padrões Arquiteturais e Classes
 │   ├── 📁 Material de Apoio/
-│   │   └── Aula 09 - parte 1 - Elementos de projeto de Software (Arquitetura, componentes, classes, objetos).pdf
+│   │   ├── Aula 09 - parte 1 - Elementos de projeto de Software (Arquitetura, componentes, classes, objetos).pdf
+│   │   └── modelo-conceitual-biblioteca.puml             # Código PlantUML oficial decodificado do Moodle
 │   ├── 📁 Entregas/
 │   │   └── 📁 Atividade - Identificacao de Componentes e Classes/
 │   │       ├── Atividade – Identificação de Componentes e Classes do Sistema.pdf # [ENTREGA 7] Documento consolidado
@@ -104,6 +118,22 @@ APOO - USP/
 │   │       ├── UML-Atividade_ Plataforma de Venda de Passagens Rodoviárias Integrada .drawio.png # Modelo Conceitual
 │   │       └── RESPOSTAS_ATIVIDADE_3.md                  # Resolução técnica completa e scripts PlantUML
 │   └── 📁 Exercícios e Laboratórios/
+│
+├── 📁 Tópico 6 - Diagrama de Sequencias/                 # (Semana 12 — 26/10)
+│   ├── README.md                                         # Síntese teórica, métodos de classes e exemplo PlantUML
+│   ├── 📁 Material de Apoio/                             # Local para Diagramas de interação - sequência.pdf
+│   ├── 📁 Exercícios e Laboratórios/
+│   └── 📁 Entregas/
+│
+├── 📁 Tópico 7 - Projeto Final/                          # (Semanas 15 a 17 — 16/11 a 30/11)
+│   ├── README.md                                         # Pipeline completo, cronograma e checklist do projeto (35%)
+│   ├── 📁 Material de Apoio/
+│   └── 📁 Entregas/
+│
+├── 📁 graphify-out/                                      # Grafo de conhecimento navegável da disciplina
+│   ├── GRAPH_REPORT.md                                   # Relatório analítico e God Nodes
+│   ├── graph.html                                        # Visualização interativa
+│   └── graph.json                                        # Base estruturada GraphRAG
 │
 ├── .gitignore                                            # Filtro de dependências e arquivos temporários
 └── README.md                                             # Portal central de navegação
@@ -121,10 +151,32 @@ APOO - USP/
 | **Atividade 3 (GoF Parte 2)** | Estudo Comparativo Completo: 3 Categorias, 9 Padrões e 3 Tabelas | 31/08/2026 | ✅ **Entregue** | [`Rafael_Feltrim_Atividade3_Comparacao_Categorias_GoF.pdf`](./Tópico%203%20-%20Padroes%20de%20Projeto%20GoF/Entregas/03-Atividade-Comparacao-Categorias-Completa/Rafael_Feltrim_Atividade3_Comparacao_Categorias_GoF.pdf) |
 | **Atividade 4 (Casos de Uso)** | Diagrama Geral de Casos de Uso (Sistema Rodoviário / ClickBus) | 21/09/2026 | ✅ **Entregue** | [`Atividade - casos de uso.docx.pdf`](./Tópico%204%20-%20Especificacao%20de%20Requisitos%20e%20Casos%20de%20Uso/Entregas/Atividade%20-%20Casos%20de%20Uso/Atividade%20-%20casos%20de%20uso.docx.pdf) |
 | **Atividade 5 (Texto & Atividades)** | Descrição Textual de Casos de Uso e Diagrama de Atividades | 28/09/2026 | ✅ **Entregue** | [`Descrição Textual de Casos de Uso e Diagrama de Atividades - Rafael Feltrim.pdf`](./Tópico%204%20-%20Especificacao%20de%20Requisitos%20e%20Casos%20de%20Uso/Entregas/Atividade%20-%20Descricao%20Textual%20e%20Diagrama%20de%20Atividades/Descrição%20Textual%20de%20Casos%20de%20Uso%20e%20Diagrama%20de%20Atividades%20-%20Rafael%20Feltrim.pdf) |
-| **Atividade 6 (Componentes & Classes)** | Identificação de Componentes, MVC e Modelo Conceitual de Classes | 12/10/2026 | ✅ **Entregue** | [`Atividade – Identificação de Componentes e Classes do Sistema.pdf`](./Tópico%205%20-%20Componentes,%20Modelo%20Conceitual%20e%20Classes/Entregas/Atividade%20-%20Identificacao%20de%20Componentes%20e%20Classes/Atividade%20–%20Identificação%20de%20Componentes%20e%20Classes%20do%20Sistema.pdf) |
+| **Atividade 6 (Componentes & Classes)** | Identificação de Componentes, MVC e Modelo Conceitual de Classes | 14/10/2026 | ✅ **Entregue** | [`Atividade – Identificação de Componentes e Classes do Sistema.pdf`](./Tópico%205%20-%20Componentes,%20Modelo%20Conceitual%20e%20Classes/Entregas/Atividade%20-%20Identificacao%20de%20Componentes%20e%20Classes/Atividade%20–%20Identificação%20de%20Componentes%20e%20Classes%20do%20Sistema.pdf) |
+| **Aula 12 (Diagrama de Sequências)** | Diagramas de interação — sequência e mapeamento para código | 26/10/2026 | 📘 **Em Estudo** | [`Tópico 6 - Diagrama de Sequencias`](./Tópico%206%20-%20Diagrama%20de%20Sequencias/README.md) |
+| **Projeto Final (35% da Média)** | Desenvolvimento orientado a objetos integrado (Semanas 15 a 17) | 16/11 – 30/11 | 🎯 **Inicia em 16/11** | [`Tópico 7 - Projeto Final`](./Tópico%207%20-%20Projeto%20Final/README.md) |
+| **Prova Final (40% da Média)** | Avaliação geral de APOO *(Sub em 14/12 com justificativa)* | 07/12/2026 | ⏳ **Prevista** | [`Cronograma e Critérios`](./Tópico%200%20-%20Informacoes%20Gerais/README.md) |
 
 ---
 
 ## 👥 Autor
 
 - **Rafael Feltrim** ([GitHub](https://github.com/RaFeltrim)) — ICMC USP
+
+---
+
+## 🧭 Como navegar
+
+| Objetivo | Onde encontrar |
+| :--- | :--- |
+| Consultar dados da disciplina | Seção **Informações Gerais** e pasta **Tópico 0** |
+| Revisar conceitos | README de cada tópico e respectiva pasta **Material de Apoio** |
+| Localizar trabalhos | Tabela **Mapa Geral de Atividades & Entregas** e pastas **Entregas** |
+| Consultar exemplos e relatórios web | Arquivos HTML e pasta **Apresentacao-Web** nas entregas de padrões GoF |
+
+Este repositório reúne materiais acadêmicos; não possui um comando único de instalação, execução ou testes documentado. Cada entrega deve ser consultada em seu contexto.
+
+### Verificação e responsabilidade
+
+- As datas e situações de entrega acima foram preservadas do README anterior; não representam uma nova confirmação de submissão no ambiente da disciplina.
+- Não são declarados resultados de testes, cobertura ou auditorias sem execução verificável.
+- Materiais de terceiros permanecem sujeitos aos direitos de seus respectivos autores. A presença no repositório não implica autorização de redistribuição.

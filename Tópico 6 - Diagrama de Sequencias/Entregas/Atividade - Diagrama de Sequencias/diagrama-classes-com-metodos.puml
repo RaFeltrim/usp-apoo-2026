@@ -1,0 +1,225 @@
+@startuml dc_ComprarPassagem_Metodos
+' =====================================================================
+' SSC0124 - APOO | Diagrama de Classes atualizado com metodos
+' Metodos derivados das mensagens dos diagramas de sequencia
+' "sd Comprar Passagem" e "sd Notificar Usuario".
+' Regra: toda mensagem recebida por uma lifeline vira operacao da classe,
+'        com nome, parametros e retorno compativeis.
+' Importar no diagrams.net: Organizar > Inserir > Avancado > PlantUML
+' =====================================================================
+skinparam classAttributeIconSize 0
+skinparam linetype polyline
+
+package "View" <<Rectangle>> {
+  class CompraPassagemView <<view>> {
+    +iniciarCompra(idViagem: Integer): void
+    +selecionarPoltronas(idsPoltronas: List<Integer>): void
+    +informarDadosPassageiros(listaDados: List<DadosOcupante>): void
+    +informarCupom(codigoCupom: String): void
+    +voltarSelecaoAssentos(): void
+    +confirmarPagamento(dadosPagamento: DadosPagamento): void
+    +exibirLayoutOnibus(poltronas: List<Poltrona>): void
+    +exibirAvisoIndisponibilidade(): void
+    +solicitarDadosPassageiros(): void
+    +exibirResumoFinanceiro(valorTotal: Decimal): void
+    +atualizarResumoFinanceiro(valorTotal: Decimal): void
+    +exibirMensagemTimeout(): void
+    +exibirAlertaPagamentoRecusado(): void
+    +exibirConfirmacao(bilhetes: List<BilhetePassagem>): void
+  }
+}
+
+package "Controller" <<Rectangle>> {
+  class CompraPassagemController <<controller>> {
+    -viagem: Viagem
+    -passageiro: Passageiro
+    -compra: CompraPassagem
+    +iniciarCompra(idViagem: Integer, idPassageiro: Integer): List<Poltrona>
+    +reservarPoltronas(idsPoltronas: List<Integer>): List<ReservaPoltrona>
+    +informarDadosPassageiros(listaDados: List<DadosOcupante>): Decimal
+    +aplicarCupom(codigoCupom: String): Decimal
+    +descartarReservas(): void
+    +finalizarCompra(dadosPagamento: DadosPagamento): List<BilhetePassagem>
+    +notificarUsuario(compra: CompraPassagem, bilhetes: List<BilhetePassagem>): List<NotificacaoEmbarque>
+  }
+}
+
+package "Model" <<Rectangle>> {
+
+  class VendasDatabase <<model>> {
+    +buscarViagem(idViagem: Integer): Viagem
+    +buscarPassageiro(idPassageiro: Integer): Passageiro
+    +salvarReserva(reserva: ReservaPoltrona): void
+    +salvarCompra(compra: CompraPassagem): void
+  }
+
+  class Passageiro {
+    +idPassageiro: Integer
+    +nomeCompleto: String
+    +documentoCpf: String
+    +email: String
+    +telefone: String
+    +obterCanaisContato(): List<String>
+  }
+
+  class EmpresaViacao {
+    +idViacao: Integer
+    +razaoSocial: String
+    +cnpj: String
+    +telefoneContato: String
+  }
+
+  class Trecho {
+    +idTrecho: Integer
+    +cidadeOrigem: String
+    +cidadeDestino: String
+    +terminalOrigem: String
+    +terminalDestino: String
+    +distanciaKm: Integer
+  }
+
+  class Viagem {
+    +idViagem: Integer
+    +codigoIdentificador: String
+    +dataPartida: Date
+    +horarioPartida: Time
+    +horarioChegadaPrevisto: Time
+    +precoBase: Decimal
+    +statusViagem: String
+    +listarPoltronasDisponiveis(): List<Poltrona>
+    +verificarDisponibilidade(idPoltrona: Integer): Boolean
+    +obterTarifa(): Decimal
+  }
+
+  class Onibus {
+    +idOnibus: Integer
+    +placaVeiculo: String
+    +categoriaServico: String
+    +capacidadeTotalAssentos: Integer
+  }
+
+  class Poltrona {
+    +idPoltrona: Integer
+    +numeroAssento: Integer
+    +localizacao: String
+    +piso: Integer
+  }
+
+  class ReservaPoltrona {
+    +idReserva: Integer
+    +dataHoraInicioReserva: DateTime
+    +dataHoraExpiracaoTimeout: DateTime
+    +statusReserva: String
+    +nomeOcupante: String
+    +documentoOcupante: String
+    +ReservaPoltrona(passageiro: Passageiro, viagem: Viagem, idPoltrona: Integer, minutosTimeout: Integer)
+    +definirOcupante(nome: String, documento: String): void
+    +estaExpirada(): Boolean
+    +confirmar(): void
+    +cancelar(): void
+  }
+
+  class CompraPassagem {
+    +idCompra: Integer
+    +codigoLocalizador: String
+    +dataHoraCompra: DateTime
+    +valorTotalBruto: Decimal
+    +valorDescontoCupom: Decimal
+    +valorTotalLiquido: Decimal
+    +statusCompra: String
+    +CompraPassagem(passageiro: Passageiro, reservas: List<ReservaPoltrona>)
+    +calcularValorTotal(): Decimal
+    +aplicarCupom(codigoCupom: String): Boolean
+    +verificarReservasValidas(): Boolean
+    +confirmar(pagamento: Pagamento): List<BilhetePassagem>
+    +cancelar(): void
+    +obterPassageiro(): Passageiro
+  }
+
+  class BilhetePassagem {
+    +numeroBilheteEletronico: String
+    +codigoQrCodeEmbarque: String
+    +plataformaEmbarque: String
+    +nomePassageiroImpresso: String
+    +documentoPassageiroImpresso: String
+    +tarifaFinal: Decimal
+    +BilhetePassagem(reserva: ReservaPoltrona)
+    +gerarQrCode(): String
+  }
+
+  class Pagamento {
+    +idPagamento: Integer
+    +metodoPagamento: String
+    +valorPago: Decimal
+    +dataHoraProcessamento: DateTime
+    +codigoAutorizacaoGateway: String
+    +statusTransacao: String
+    +Pagamento(metodo: String, valor: Decimal)
+    +processar(dadosPagamento: DadosPagamento): Boolean
+  }
+
+  class NotificacaoEmbarque {
+    +idNotificacao: Integer
+    +canalEnvio: String
+    +destinatarioContato: String
+    +dataHoraEnvio: DateTime
+    +statusEntrega: String
+    +NotificacaoEmbarque(canal: String, destinatario: String)
+    +enviar(bilhetes: List<BilhetePassagem>): Boolean
+    +registrarFalha(): void
+  }
+
+  class DadosPagamento <<dataType>> {
+    +metodo: String
+    +numeroCartao: String
+    +titular: String
+    +validade: String
+    +codigoSeguranca: String
+  }
+
+  class DadosOcupante <<dataType>> {
+    +nome: String
+    +documento: String
+  }
+}
+
+package "Servicos Externos" <<Rectangle>> {
+  interface GatewayPagamento <<external>> {
+    +autorizarCobranca(valor: Decimal, dadosPagamento: DadosPagamento): String
+  }
+  interface ServicoNotificacao <<external>> {
+    +enviarMensagem(canal: String, destinatario: String, conteudo: String): void
+  }
+}
+
+' ---------- Dependencias MVC ----------
+CompraPassagemView ..> CompraPassagemController : <<use>>
+CompraPassagemController ..> VendasDatabase : <<use>>
+CompraPassagemController ..> Viagem : <<use>>
+CompraPassagemController ..> CompraPassagem : <<use>>
+CompraPassagemController ..> ReservaPoltrona : <<create>>
+CompraPassagemController ..> Pagamento : <<create>>
+CompraPassagemController ..> NotificacaoEmbarque : <<create>>
+Pagamento ..> GatewayPagamento : <<use>>
+NotificacaoEmbarque ..> ServicoNotificacao : <<use>>
+
+' ---------- Associacoes do modelo conceitual (Topico 5) ----------
+EmpresaViacao "1" -- "0..*" Viagem : opera >
+Viagem "0..*" -- "1" Trecho : percorre >
+Viagem "0..*" o-- "1" Onibus : aloca >
+Onibus "1" *-- "1..*" Poltrona : compoe >
+Passageiro "1" -- "0..*" CompraPassagem : efetua >
+CompraPassagem "1" *-- "1..*" BilhetePassagem : gera >
+CompraPassagem "1" o-- "1" Pagamento : liquidada por >
+BilhetePassagem "0..*" -- "1" Viagem : refere-se a >
+BilhetePassagem "1" -- "1" Poltrona : reserva assento >
+BilhetePassagem "0..*" -- "1" Passageiro : emitido para >
+ReservaPoltrona "0..1" -- "1" Poltrona : bloqueia >
+ReservaPoltrona "0..*" -- "1" Viagem : na viagem >
+ReservaPoltrona "0..*" -- "1" Passageiro : solicitada por >
+CompraPassagem "1" -- "0..*" NotificacaoEmbarque : dispara >
+
+' ---------- Nova associacao exigida pelo diagrama de sequencia ----------
+CompraPassagem "0..1" -- "1..*" ReservaPoltrona : agrupa >
+@enduml
+

@@ -109,7 +109,11 @@ APOO - USP/
 │   ├── README.md                                         # Análise & Design, Padrões Arquiteturais e Classes
 │   ├── 📁 Material de Apoio/
 │   │   ├── Aula 09 - parte 1 - Elementos de projeto de Software (Arquitetura, componentes, classes, objetos).pdf
-│   │   └── modelo-conceitual-biblioteca.puml             # Código PlantUML oficial decodificado do Moodle
+│   │   ├── Aula 09 - Parte 2 - Associações entre Classes de Domínio.pdf
+│   │   ├── codigo-modelo-conceitual-biblioteca.pdf
+│   │   ├── modelo-conceitual-biblioteca.puml             # Código PlantUML oficial decodificado do Moodle
+│   │   └── 📁 Transcrições/
+│   │       └── Aula 10 - Modelo conceitual (diagrama de classes).md
 │   ├── 📁 Entregas/
 │   │   └── 📁 Atividade - Identificacao de Componentes e Classes/
 │   │       ├── Atividade – Identificação de Componentes e Classes do Sistema.pdf # [ENTREGA 7] Documento consolidado
@@ -120,15 +124,37 @@ APOO - USP/
 │   └── 📁 Exercícios e Laboratórios/
 │
 ├── 📁 Tópico 6 - Diagrama de Sequencias/                 # (Semana 12 — 26/10)
-│   ├── README.md                                         # Síntese teórica, métodos de classes e exemplo PlantUML
-│   ├── 📁 Material de Apoio/                             # Local para Diagramas de interação - sequência.pdf
+│   ├── README.md                                         # Síntese teórica, métodos de classes e rastreabilidade
+│   ├── 📁 Material de Apoio/
+│   │   └── Aula 10 - Diagramas de interação - sequência.pdf
 │   ├── 📁 Exercícios e Laboratórios/
 │   └── 📁 Entregas/
+│       └── 📁 Atividade - Diagrama de Sequencias/
+│           ├── Atividade - Diagrama de Sequencias - Rafael Feltrim.pdf # Documento consolidado em 8 págs.
+│           ├── Atividade – Elaboração de diagrama de sequências.docx.pdf
+│           ├── RESPOSTAS_ATIVIDADE_SEQUENCIA.md          # Resolução e rastreabilidade mensagem → método
+│           ├── diagrama-sequencia-comprar-passagem.puml
+│           ├── diagrama-sequencia-notificar-usuario.puml
+│           ├── diagrama-classes-com-metodos.puml
+│           └── diagrama-atividades-comprar-passagem.puml
 │
-├── 📁 Tópico 7 - Projeto Final/                          # (Semanas 15 a 17 — 16/11 a 30/11)
-│   ├── README.md                                         # Pipeline completo, cronograma e checklist do projeto (35%)
+├── 📁 Tópico 7 - Projeto Final/                          # (APOO assistido por LLM — Entrega até 14/12)
+│   ├── README.md                                         # Diretrizes Gemini + PlantUML, cronograma e checklist `.zip` (35%)
 │   ├── 📁 Material de Apoio/
+│   │   ├── Projeto Final - APOO assistido por LLM.docx.pdf
+│   │   ├── Diretrizes - APOO apoiado por LLM.docx.pdf
+│   │   └── Estrutura de relatório.docx.pdf
 │   └── 📁 Entregas/
+│       └── 📁 Projeto Final - APOO assistido por LLM/
+│           ├── README.md                                 # Checklist por capítulos 1–7, reflexões e apêndices
+│           ├── 📁 Pacote-ZIP/                            # Espelho limpo: Diagramas/*.png + Prompts/ + futuro Relatorio.pdf
+│           └── 📁 Desenvolvimento/                       # Historias-de-Usuario.md, .puml e antes/depois
+│
+├── 📁 Exemplos de Prova/                                 # Preparação para a Prova Final (07/12)
+│   ├── README.md                                         # Mapa de temas cobrados → Tópicos do repositório
+│   └── 📁 Material de Apoio/
+│       ├── Prova - 2024-2.docx.pdf
+│       └── Cópia de Prova APOO 2026.docx.pdf
 │
 ├── 📁 graphify-out/                                      # Grafo de conhecimento navegável da disciplina
 │   ├── GRAPH_REPORT.md                                   # Relatório analítico e God Nodes
@@ -152,9 +178,9 @@ APOO - USP/
 | **Atividade 4 (Casos de Uso)** | Diagrama Geral de Casos de Uso (Sistema Rodoviário / ClickBus) | 21/09/2026 | ✅ **Entregue** | [`Atividade - casos de uso.docx.pdf`](./Tópico%204%20-%20Especificacao%20de%20Requisitos%20e%20Casos%20de%20Uso/Entregas/Atividade%20-%20Casos%20de%20Uso/Atividade%20-%20casos%20de%20uso.docx.pdf) |
 | **Atividade 5 (Texto & Atividades)** | Descrição Textual de Casos de Uso e Diagrama de Atividades | 28/09/2026 | ✅ **Entregue** | [`Descrição Textual de Casos de Uso e Diagrama de Atividades - Rafael Feltrim.pdf`](./Tópico%204%20-%20Especificacao%20de%20Requisitos%20e%20Casos%20de%20Uso/Entregas/Atividade%20-%20Descricao%20Textual%20e%20Diagrama%20de%20Atividades/Descrição%20Textual%20de%20Casos%20de%20Uso%20e%20Diagrama%20de%20Atividades%20-%20Rafael%20Feltrim.pdf) |
 | **Atividade 6 (Componentes & Classes)** | Identificação de Componentes, MVC e Modelo Conceitual de Classes | 14/10/2026 | ✅ **Entregue** | [`Atividade – Identificação de Componentes e Classes do Sistema.pdf`](./Tópico%205%20-%20Componentes,%20Modelo%20Conceitual%20e%20Classes/Entregas/Atividade%20-%20Identificacao%20de%20Componentes%20e%20Classes/Atividade%20–%20Identificação%20de%20Componentes%20e%20Classes%20do%20Sistema.pdf) |
-| **Aula 12 (Diagrama de Sequências)** | Diagramas de interação — sequência e mapeamento para código | 26/10/2026 | 📘 **Em Estudo** | [`Tópico 6 - Diagrama de Sequencias`](./Tópico%206%20-%20Diagrama%20de%20Sequencias/README.md) |
-| **Projeto Final (35% da Média)** | Desenvolvimento orientado a objetos integrado (Semanas 15 a 17) | 16/11 – 30/11 | 🎯 **Inicia em 16/11** | [`Tópico 7 - Projeto Final`](./Tópico%207%20-%20Projeto%20Final/README.md) |
-| **Prova Final (40% da Média)** | Avaliação geral de APOO *(Sub em 14/12 com justificativa)* | 07/12/2026 | ⏳ **Prevista** | [`Cronograma e Critérios`](./Tópico%200%20-%20Informacoes%20Gerais/README.md) |
+| **Atividade 7 (Diagrama de Sequências)** | Diagramas de Sequência e Classes com Métodos (`Comprar Passagem`) | 16/11/2026 (12:00) | 📦 **PDF pronto p/ envio** | [`Atividade - Diagrama de Sequencias - Rafael Feltrim.pdf`](./Tópico%206%20-%20Diagrama%20de%20Sequencias/Entregas/Atividade%20-%20Diagrama%20de%20Sequencias/Atividade%20-%20Diagrama%20de%20Sequencias%20-%20Rafael%20Feltrim.pdf) |
+| **Projeto Final (35% da Média)** | **APOO assistido por LLM** (`Individual · Gemini + PlantUML`) | 14/12/2026 | 🚀 **Enunciado publicado (16/11)** | [`Tópico 7 - Projeto Final`](./Tópico%207%20-%20Projeto%20Final/README.md) · [`Área do Projeto`](./Tópico%207%20-%20Projeto%20Final/Entregas/Projeto%20Final%20-%20APOO%20assistido%20por%20LLM/README.md) |
+| **Prova Final (40% da Média)** | Avaliação geral de APOO *(Sub em 14/12 com justificativa)* | 07/12/2026 | ⏳ **Prevista** | [`Exemplos de Prova`](./Exemplos%20de%20Prova/README.md) · [`Cronograma`](./Tópico%200%20-%20Informacoes%20Gerais/README.md) |
 
 ---
 
@@ -172,6 +198,7 @@ APOO - USP/
 | Revisar conceitos | README de cada tópico e respectiva pasta **Material de Apoio** |
 | Localizar trabalhos | Tabela **Mapa Geral de Atividades & Entregas** e pastas **Entregas** |
 | Consultar exemplos e relatórios web | Arquivos HTML e pasta **Apresentacao-Web** nas entregas de padrões GoF |
+| Preparar para a Prova Final | Pasta **Exemplos de Prova** (provas 2024-2 e 2026 + mapa de temas) |
 
 Este repositório reúne materiais acadêmicos; não possui um comando único de instalação, execução ou testes documentado. Cada entrega deve ser consultada em seu contexto.
 

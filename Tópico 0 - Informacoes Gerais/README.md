@@ -19,7 +19,7 @@
 
 ---
 
-## 📅 Cronograma Oficial vs. Andamento Atual (Referência: 10/11/2026)
+## 📅 Cronograma Oficial vs. Andamento Atual (Referência: 16/11/2026)
 
 | Aula | Data | Conteúdo Programático | Status / Módulo |
 | :---: | :---: | :--- | :---: |
@@ -34,14 +34,14 @@
 | 9 | 05/10 | Diagrama de classes (Parte 2 — modelo de banco e código) | ✅ [Tópico 5](../T%C3%B3pico%205%20-%20Componentes,%20Modelo%20Conceitual%20e%20Classes/) |
 | 10 | 12/10 | *Nossa Sra. Aparecida — Sem aula* | ⏸️ Feriado |
 | 11 | 19/10 | *Semana da Computação — Sem aula* | ⏸️ Evento |
-| 12 | 26/10 | Diagrama de sequências, métodos de classes e código | 📘 [Tópico 6](../T%C3%B3pico%206%20-%20Diagrama%20de%20Sequencias/) |
+| 12 | 26/10 | Diagrama de sequências, métodos de classes e código | ✅ [Tópico 6](../T%C3%B3pico%206%20-%20Diagrama%20de%20Sequencias/) |
 | 13 | 02/11 | *Finados — Sem aula* | ⏸️ Feriado |
-| 14 | 09/11 | Consolidação de diagramas / preparação para o Projeto | 📘 [Tópico 6](../T%C3%B3pico%206%20-%20Diagrama%20de%20Sequencias/) / [Tópico 7](../T%C3%B3pico%207%20-%20Projeto%20Final/) |
-| **15** | **16/11** | **PROJETO (Semana 1)** | 🎯 **Próxima aula** ([Tópico 7](../T%C3%B3pico%207%20-%20Projeto%20Final/)) |
+| 14 | 09/11 | Consolidação de diagramas / preparação para o Projeto | ✅ [Tópico 6](../T%C3%B3pico%206%20-%20Diagrama%20de%20Sequencias/) / [Tópico 7](../T%C3%B3pico%207%20-%20Projeto%20Final/) |
+| **15** | **16/11** | **PROJETO FINAL — APOO assistido por LLM (Semana 1)** | 🚀 **Enunciado publicado (entrega: 14/12)** ([Tópico 7](../T%C3%B3pico%207%20-%20Projeto%20Final/)) |
 | **16** | **23/11** | **PROJETO (Semana 2)** | ⏳ [Tópico 7](../T%C3%B3pico%207%20-%20Projeto%20Final/) |
-| **17** | **30/11** | **PROJETO (Semana 3 — Encerramento)** | ⏳ [Tópico 7](../T%C3%B3pico%207%20-%20Projeto%20Final/) |
+| **17** | **30/11** | **PROJETO (Semana 3)** | ⏳ [Tópico 7](../T%C3%B3pico%207%20-%20Projeto%20Final/) |
 | **18** | **07/12** | **PROVA FINAL** | 📝 Avaliação (40%) |
-| **19** | **14/12** | **PROVA SUBSTITUTIVA** *(falta justificada)* / Recuperação | 📝 Avaliação |
+| **19** | **14/12** | **ENTREGA PROJETO FINAL + PROVA SUBSTITUTIVA / Recuperação** | 📝 Entrega `.zip` (35%) / Sub *(falta justificada)* |
 
 ---
 

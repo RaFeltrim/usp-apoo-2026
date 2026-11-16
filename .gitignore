@@ -13,3 +13,9 @@ Thumbs.db
 # IDE files
 .vscode/
 .idea/
+
+# Vídeos de aula (muito grandes; mantidos apenas localmente)
+*.mp4
+
+# Ferramentas locais
+.venv-tools/

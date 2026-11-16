@@ -30,16 +30,16 @@
     "semantic_hash": "920b5ca24c52dcd45b2189a13f1b61d0"
   },
   "README.md": {
-    "mtime": 1794341649.8668633,
-    "seen": 1794341738.1894941,
-    "ast_hash": "6ca70b69fbd7853dbb40301070a6c9d1",
-    "semantic_hash": "6ca70b69fbd7853dbb40301070a6c9d1"
+    "mtime": 1794834650.3508584,
+    "seen": 1794834927.918673,
+    "ast_hash": "b89b21caaec6a46618b918bd33677ea9",
+    "semantic_hash": "b89b21caaec6a46618b918bd33677ea9"
   },
   "T\u00f3pico 0 - Informacoes Gerais/README.md": {
-    "mtime": 1794341587.80941,
-    "seen": 1794341738.1895046,
-    "ast_hash": "3056c3fad7644375ffb1c4772dc8e840",
-    "semantic_hash": "3056c3fad7644375ffb1c4772dc8e840"
+    "mtime": 1794834615.0902975,
+    "seen": 1794834927.9187071,
+    "ast_hash": "edefd37973cb6d1e4eb00f0d433d88a5",
+    "semantic_hash": "edefd37973cb6d1e4eb00f0d433d88a5"
   },
   "T\u00f3pico 1 - Revisao Paradigma OO/README.md": {
     "mtime": 1787579925.974394,
@@ -84,10 +84,10 @@
     "semantic_hash": "b778795ed96b54c2a7973ad237e1c083"
   },
   "T\u00f3pico 5 - Componentes, Modelo Conceitual e Classes/README.md": {
-    "mtime": 1794341853.8088543,
-    "seen": 1794341899.3034058,
-    "ast_hash": "8607c43f036f0a145c3d21e902d038ab",
-    "semantic_hash": "8607c43f036f0a145c3d21e902d038ab"
+    "mtime": 1794834719.790334,
+    "seen": 1794834927.9421673,
+    "ast_hash": "0e5ad2ae6c189a51d0fa26d799d2b9e1",
+    "semantic_hash": "0e5ad2ae6c189a51d0fa26d799d2b9e1"
   },
   "T\u00f3pico 1 - Revisao Paradigma OO/Material de Apoio/Aula 01 - O paradigma de orienta\u00e7\u00e3o a objetos.pdf": {
     "mtime": 1789396783.956801,
@@ -174,21 +174,81 @@
     "semantic_hash": "616945da70e93cb3346c9d176b959ca0"
   },
   "T\u00f3pico 6 - Diagrama de Sequencias/README.md": {
-    "mtime": 1794341592.0595193,
-    "seen": 1794341738.1966977,
-    "ast_hash": "7aa4aed20df33b2d58b29488e1aba429",
-    "semantic_hash": "7aa4aed20df33b2d58b29488e1aba429"
+    "mtime": 1794791224.7611508,
+    "seen": 1794834927.9421995,
+    "ast_hash": "db02263cf1bfa27ffa827c40cf535abe",
+    "semantic_hash": "db02263cf1bfa27ffa827c40cf535abe"
   },
   "T\u00f3pico 7 - Projeto Final/README.md": {
-    "mtime": 1794341598.4160376,
-    "seen": 1794341738.1967025,
-    "ast_hash": "fdaf1b09134473f9181ebc353f60125e",
-    "semantic_hash": "fdaf1b09134473f9181ebc353f60125e"
+    "mtime": 1794834613.111904,
+    "seen": 1794834927.9422607,
+    "ast_hash": "4278323688ff8dbfb120c2f8c5cf9e98",
+    "semantic_hash": "4278323688ff8dbfb120c2f8c5cf9e98"
   },
   "T\u00f3pico 5 - Componentes, Modelo Conceitual e Classes/Entregas/Atividade - Identificacao de Componentes e Classes/Atividade \u2013 Identifica\u00e7\u00e3o de Componentes e Classes do Sistema.pdf": {
     "mtime": 1790684421.8077564,
     "seen": 1794341738.2131672,
     "ast_hash": "57f309fdf30408146158953fb0d71945",
     "semantic_hash": "57f309fdf30408146158953fb0d71945"
+  },
+  "Exemplos de Prova/README.md": {
+    "mtime": 1794405602.6216602,
+    "seen": 1794834927.918622,
+    "ast_hash": "d53f3c8356b49b6387270b50db8b4fc8",
+    "semantic_hash": "d53f3c8356b49b6387270b50db8b4fc8"
+  },
+  "T\u00f3pico 5 - Componentes, Modelo Conceitual e Classes/Material de Apoio/Transcri\u00e7\u00f5es/Aula 10 - Modelo conceitual (diagrama de classes).md": {
+    "mtime": 1794787834.2358837,
+    "seen": 1794834927.9421177,
+    "ast_hash": "b0000f5993e79123d6f42a9701d9377c",
+    "semantic_hash": "b0000f5993e79123d6f42a9701d9377c"
+  },
+  "T\u00f3pico 7 - Projeto Final/Entregas/Projeto Final - APOO assistido por LLM/Desenvolvimento/Historias-de-Usuario.md": {
+    "mtime": 1794834494.4935224,
+    "seen": 1794834927.9422312,
+    "ast_hash": "e21ed4fddb64c2f528a2016159376b13",
+    "semantic_hash": "e21ed4fddb64c2f528a2016159376b13"
+  },
+  "Exemplos de Prova/Material de Apoio/C\u00f3pia de Prova APOO 2026.docx.pdf": {
+    "mtime": 1794343003.3002112,
+    "seen": 1794834927.9422922,
+    "ast_hash": "d4bd8a8a7f1029a3e8eb04f9105c9947",
+    "semantic_hash": "d4bd8a8a7f1029a3e8eb04f9105c9947"
+  },
+  "Exemplos de Prova/Material de Apoio/Prova - 2024-2.docx.pdf": {
+    "mtime": 1794343010.1734083,
+    "seen": 1794834927.9423192,
+    "ast_hash": "41d5e48aa22d995dcd7fe75e7bbb287c",
+    "semantic_hash": "41d5e48aa22d995dcd7fe75e7bbb287c"
+  },
+  "T\u00f3pico 5 - Componentes, Modelo Conceitual e Classes/Material de Apoio/Aula 09 - Parte 2 - Associa\u00e7\u00f5es entre Classes de Dom\u00ednio.pdf": {
+    "mtime": 1794342945.1346085,
+    "seen": 1794834927.9959881,
+    "ast_hash": "70ece6a68b56195b5008561588f21253",
+    "semantic_hash": "70ece6a68b56195b5008561588f21253"
+  },
+  "T\u00f3pico 6 - Diagrama de Sequencias/Entregas/Atividade - Diagrama de Sequencias/Atividade - Diagrama de Sequencias - Rafael Feltrim.pdf": {
+    "mtime": 1794791126.6818466,
+    "seen": 1794834928.0082457,
+    "ast_hash": "a1068c97d43db20abbac445a74635b74",
+    "semantic_hash": "a1068c97d43db20abbac445a74635b74"
+  },
+  "T\u00f3pico 7 - Projeto Final/Material de Apoio/Diretrizes - APOO apoiado por LLM.docx.pdf": {
+    "mtime": 1794830951.9527159,
+    "seen": 1794834928.0082793,
+    "ast_hash": "0d9eb25dadf339065b9e768b076db788",
+    "semantic_hash": "0d9eb25dadf339065b9e768b076db788"
+  },
+  "T\u00f3pico 7 - Projeto Final/Material de Apoio/Estrutura de relat\u00f3rio.docx.pdf": {
+    "mtime": 1794830924.3702135,
+    "seen": 1794834928.008297,
+    "ast_hash": "6039c6c779902d4de3854e18217effb8",
+    "semantic_hash": "6039c6c779902d4de3854e18217effb8"
+  },
+  "T\u00f3pico 7 - Projeto Final/Material de Apoio/Projeto Final - APOO assistido por LLM.docx.pdf": {
+    "mtime": 1794829975.8080018,
+    "seen": 1794834928.00831,
+    "ast_hash": "bbc4168ba3bfa66d313eabab4c7a6542",
+    "semantic_hash": "bbc4168ba3bfa66d313eabab4c7a6542"
   }
 }

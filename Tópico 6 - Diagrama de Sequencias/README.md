@@ -7,8 +7,16 @@ Módulo correspondente à **Aula 12 (26/10/2026)** do cronograma oficial, dedica
 ## 🔗 Links e Recursos do e-Disciplinas
 
 - **Seção Moodle:** [Diagrama de Sequências](https://edisciplinas.usp.br/course/section.php?id=6991983)
-- **Arquivo da Aula:** [Diagramas de interação - sequência (Moodle)](https://edisciplinas.usp.br/mod/resource/view.php?id=6620361) *(Pendente download local — salvar o PDF em `./Material de Apoio/`)*
-- **Atividades Cadastradas no Moodle:** Nenhuma tarefa avaliativa formal cadastrada nesta seção até `10/11/2026`.
+- **Arquivo da Aula:** [`Aula 10 - Diagramas de interação - sequência.pdf`](<./Material%20de%20Apoio/Aula%2010%20-%20Diagramas%20de%20intera%C3%A7%C3%A3o%20-%20sequ%C3%AAncia.pdf>) *(Disponível localmente; [link Moodle](https://edisciplinas.usp.br/mod/resource/view.php?id=6620361))*
+- **Atividade Prática (Prazo: 16/11/2026, 12:00 — Individual):**
+  - Enunciado: [`Atividade – Elaboração de diagrama de sequências.docx.pdf`](<./Entregas/Atividade%20-%20Diagrama%20de%20Sequencias/Atividade%20%E2%80%93%20Elabora%C3%A7%C3%A3o%20de%20diagrama%20de%20sequ%C3%AAncias.docx.pdf>)
+  - Documento Consolidado (PDF pronto para envio): [`Atividade - Diagrama de Sequencias - Rafael Feltrim.pdf`](<./Entregas/Atividade%20-%20Diagrama%20de%20Sequencias/Atividade%20-%20Diagrama%20de%20Sequencias%20-%20Rafael%20Feltrim.pdf>)
+  - Resolução e Rastreabilidade: [`RESPOSTAS_ATIVIDADE_SEQUENCIA.md`](<./Entregas/Atividade%20-%20Diagrama%20de%20Sequencias/RESPOSTAS_ATIVIDADE_SEQUENCIA.md>)
+  - Diagramas PlantUML (para importar no [diagrams.net](https://app.diagrams.net/)):
+    - [`diagrama-sequencia-comprar-passagem.puml`](<./Entregas/Atividade%20-%20Diagrama%20de%20Sequencias/diagrama-sequencia-comprar-passagem.puml>)
+    - [`diagrama-sequencia-notificar-usuario.puml`](<./Entregas/Atividade%20-%20Diagrama%20de%20Sequencias/diagrama-sequencia-notificar-usuario.puml>)
+    - [`diagrama-classes-com-metodos.puml`](<./Entregas/Atividade%20-%20Diagrama%20de%20Sequencias/diagrama-classes-com-metodos.puml>)
+    - [`diagrama-atividades-comprar-passagem.puml`](<./Entregas/Atividade%20-%20Diagrama%20de%20Sequencias/diagrama-atividades-comprar-passagem.puml>) *(versão ajustada para coerência com FE02)*
 - **Atividades Previstas no Cronograma (Aula 12):**
   - *Em dupla:* Diagrama de sequências e definição de métodos de classes.
   - *Extra-aula:* Diagrama de sequência ao código.
@@ -25,6 +33,7 @@ Módulo correspondente à **Aula 12 (26/10/2026)** do cronograma oficial, dedica
 - **Participantes / Objetos:** Retângulos no topo no formato `nomeObjeto : NomeClasse` (ou `:NomeClasse` quando anônimo) e atores externos.
 - **Linha de Vida (*Lifeline*):** Linha vertical tracejada que representa a existência do objeto ao longo do tempo (de cima para baixo).
 - **Barra de Ativação (*Focus of Control*):** Retângulo vertical fino sobre a lifeline indicando o período em que o objeto está executando uma operação.
+- **Portão (*Gate*):** Mensagem que entra ou sai pela borda do quadro do diagrama (`[->` / `[<--`), representando comunicação recebida de um chamador externo ao diagrama (ex.: na interação referenciada por `ref`).
 - **Tipos de Mensagens:**
   - `->` **Síncrona (seta cheia contínua):** O chamador aguarda o processamento e o retorno antes de prosseguir.
   - `->>` **Assíncrona (seta aberta):** Dispara a ação sem bloquear o chamador (comum para filas/notificações).
@@ -36,67 +45,24 @@ Módulo correspondente à **Aula 12 (26/10/2026)** do cronograma oficial, dedica
 - **`alt` (Alternativa):** Equivale a `if / else` (múltiplos operandos com condições de guarda `[condição]`).
 - **`opt` (Opcional):** Equivale a `if` simples (executa apenas se a condição `[guarda]` for verdadeira).
 - **`loop` (Repetição):** Equivale a `for / while` (ex.: `loop [para cada poltrona selecionada]`).
+- **`ref` (Uso de Interação):** Referencia outro diagrama de sequência (sub-rotina ou caso de uso incluído via `<<include>>`).
 - **`par` (Paralelo):** Execução concorrente de blocos (ex.: exibir tela de confirmação enquanto envia notificação).
+- **Restrições de Interação (`[condição]`):** Guardas entre colchetes que delimitam quando cada ramo executa.
 
 ### 4. Do Diagrama de Sequência aos Métodos e ao Código
-1. Toda seta de mensagem que chega na *lifeline* de um objeto `:ClasseB` torna-se um **método público** em `ClasseB`.
-2. Os parâmetros passados na seta definem a **assinatura do método** (`metodo(param1, param2): TipoRetorno`).
+1. Toda seta de mensagem que chega na *lifeline* de um objeto `:ClasseB` torna-se um **método público** em `ClasseB` (com nome, parâmetros e retorno compatíveis).
+2. A camada **Model** inclui, além das classes de domínio, a classe de persistência/banco de dados (ex.: `VendasDatabase`, análogo a `UsuárioDatabase` na Aula 10).
 3. Fragmentos `alt`/`opt`/`loop` traduzem-se diretamente em desvios condicionais e laços na camada `Controller` / `Model`.
 
 ---
 
-## 💻 Exemplo Aplicado (Plataforma Rodoviária — Caso de Uso `Comprar Passagem`)
+## 💻 Entrega Aplicada (Plataforma Rodoviária — Caso de Uso `Comprar Passagem`)
 
-Exemplo em **PlantUML** conectando os componentes MVC e classes do **Tópico 5** ao fluxo do **Tópico 4**:
+A modelagem completa em **PlantUML** (alinhada às classes reais do modelo conceitual do **Tópico 5** e aos fluxos do **Tópico 4**) encontra-se em [`./Entregas/Atividade - Diagrama de Sequencias/`](./Entregas/Atividade%20-%20Diagrama%20de%20Sequencias/):
 
-```plantuml
-@startuml
-autonumber
-actor Passageiro
-participant ":ViewPassageiro" as View
-participant ":ControllerVendas" as Ctrl
-participant ":ComponenteVendas" as Model
-participant "reserva:ReservaPoltrona" as Reserva
-participant "compra:CompraPassagem" as Compra
-participant ":GatewayPagamento" as Gateway
-participant ":ServicoNotificacao" as Notif
+- **View:** `CompraPassagemView` *(componente `ViewPassageiro`)*
+- **Controller:** `CompraPassagemController` *(componente `ControllerVendas`)*
+- **Model:** `VendasDatabase`, `Viagem`, `ReservaPoltrona`, `CompraPassagem`, `Pagamento`, `BilhetePassagem`, `Passageiro`, `NotificacaoEmbarque`
+- **Externos:** `GatewayPagamento`, `ServicoNotificacao`
 
-Passageiro -> View : selecionarPoltronas(viagemId, assentos)
-activate View
-View -> Ctrl : iniciarCheckout(viagemId, assentos, passageiroId)
-activate Ctrl
-
-Ctrl -> Model : verificarDisponibilidade(viagemId, assentos)
-activate Model
-
-alt assentos disponíveis
-  Model -> Reserva ** : <<create>> criarReservaTemporaria(assentos, timeout=10min)
-  Model --> Ctrl : reservaConfirmada(reservaId)
-  Ctrl --> View : exibirResumoFinanceiro(valorTotal)
-
-  Passageiro -> View : confirmarPagamento(dadosPagamento)
-  View -> Ctrl : finalizarCompra(reservaId, dadosPagamento)
-  Ctrl -> Model : processarCompra(reservaId, dadosPagamento)
-
-  Model -> Gateway : autorizarCobranca(valorTotal, dadosPagamento)
-  activate Gateway
-  Gateway --> Model : statusTransacao = APROVADO
-  deactivate Gateway
-
-  Model -> Compra ** : <<create>> registrarCompra(reservaId, status=PAGA)
-  par confirmação e mensageria
-    Model -->> Notif : enviarBilheteAssincrono(email, qrCode)
-  else resposta ao usuário
-    Model --> Ctrl : bilhetesEmitidos(listaBilhetes)
-  end
-  Ctrl --> View : exibirTelaConfirmacao(listaBilhetes)
-else assento indisponível
-  Model --> Ctrl : erroConcorrencia("Assento já ocupado")
-  Ctrl --> View : exibirAlertaIndisponibilidade()
-end
-
-deactivate Model
-deactivate Ctrl
-deactivate View
-@enduml
-```
+Consulte [`RESPOSTAS_ATIVIDADE_SEQUENCIA.md`](<./Entregas/Atividade%20-%20Diagrama%20de%20Sequencias/RESPOSTAS_ATIVIDADE_SEQUENCIA.md>) para a tabela completa de rastreabilidade (*mensagem → classe → método*) e instruções de importação no [diagrams.net](https://app.diagrams.net/).

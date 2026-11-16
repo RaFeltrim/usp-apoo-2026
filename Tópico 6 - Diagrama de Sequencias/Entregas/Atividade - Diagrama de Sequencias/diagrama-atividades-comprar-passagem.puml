@@ -1,0 +1,60 @@
+@startuml act_ComprarPassagem
+' =====================================================================
+' SSC0124 - APOO | Atividade - Diagrama de Sequencias
+' Diagrama de Atividades ajustado para o UC Comprar Passagem
+' Ajuste em relacao ao Topico 4: FE02 (Pagamento Recusado) retorna ao
+' resumo financeiro (passo 6), alinhado a descricao textual e ao
+' diagrama de sequencia.
+' Importar no diagrams.net: Organizar > Inserir > Avancado > PlantUML
+' =====================================================================
+|Passageiro|
+start
+:Iniciar Compra da Viagem;
+
+|Sistema|
+repeat :Exibir Layout do Ônibus;
+  |Passageiro|
+  :Selecionar Assentos;
+  |Sistema|
+  :Verificar Disponibilidade;
+  backward :Exibir Aviso de Assento Indisponível;
+repeat while (Assento Disponível?) is (Não - FE01) not (Sim)
+
+:Reservar Assentos Temporariamente;
+:Solicitar Dados dos Passageiros;
+|Passageiro|
+:Preencher Dados dos Passageiros;
+
+|Sistema|
+repeat :Exibir Resumo Financeiro;
+  |Passageiro|
+  if (Aplicar Cupom? - FA01) then (Sim)
+    :Informar Cupom Promocional;
+    |Sistema|
+    :Validar Cupom e Recalcular Valor;
+  endif
+  |Passageiro|
+  :Informar Dados de Pagamento;
+  |Sistema|
+  if (Reserva dentro do prazo? - FE03) then (Não)
+    :Expirar Reserva e Cancelar Compra;
+    :Exibir Mensagem de Timeout;
+    stop
+  endif
+  :Processar Cobrança;
+  |Sistema de Pagamento|
+  :Validar Pagamento;
+  |Sistema|
+  backward :Exibir Alerta de Pagamento Recusado;
+repeat while (Pagamento Aprovado?) is (Não - FE02) not (Sim)
+
+|Sistema|
+:Confirmar Reservas e Emitir Bilhetes;
+fork
+  :Exibir Tela de Confirmação;
+fork again
+  |Sistema de Notificações|
+  :Enviar Comprovante\n(E-mail / WhatsApp);
+end fork
+stop
+@enduml

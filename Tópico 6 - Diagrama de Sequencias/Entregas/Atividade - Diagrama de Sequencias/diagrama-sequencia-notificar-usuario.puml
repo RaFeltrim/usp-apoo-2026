@@ -1,0 +1,49 @@
+@startuml sd_NotificarUsuario
+' =====================================================================
+' Interacao referenciada (ref) pelo sd Comprar Passagem.
+' A mensagem de entrada chega por um GATE (borda do quadro), pois
+' o chamador (CompraPassagemController) esta fora deste diagrama.
+' =====================================================================
+skinparam sequenceMessageAlign center
+skinparam responseMessageBelowArrow true
+hide footbox
+autonumber
+
+title sd Notificar Usuario
+
+control ":CompraPassagemController" as Ctrl <<controller>>
+entity "compra:CompraPassagem" as Compra <<model>>
+entity "passageiro:Passageiro" as Passageiro <<model>>
+entity "notificacao:NotificacaoEmbarque" as Notif <<model>>
+participant ":ServicoNotificacao" as Servico <<external>>
+
+[-> Ctrl : notificarUsuario(compra, bilhetes)
+activate Ctrl
+Ctrl -> Compra : obterPassageiro() : Passageiro
+activate Compra
+Compra --> Ctrl : passageiro
+deactivate Compra
+Ctrl -> Passageiro : obterCanaisContato() : List<String>
+activate Passageiro
+Passageiro --> Ctrl : canais (email, whatsapp)
+deactivate Passageiro
+
+loop para cada canal em canais
+  create Notif
+  Ctrl -> Notif : <<create>> NotificacaoEmbarque(canal, destinatario)
+  Ctrl -> Notif : enviar(bilhetes) : Boolean
+  activate Notif
+  Notif ->> Servico : enviarMensagem(canal, destinatario, conteudo)
+  Notif --> Ctrl : enviada
+  deactivate Notif
+  opt enviada = false
+    Ctrl -> Notif : registrarFalha() : void
+    activate Notif
+    deactivate Notif
+  end
+end
+
+[<-- Ctrl : notificacoesRegistradas
+deactivate Ctrl
+@enduml
+

@@ -9,10 +9,10 @@ Módulo focado na transição da etapa de requisitos para o projeto (design) de 
 - **Seção Moodle:** [Diagrama de Componentes, Diagrama de modelo conceitual, Diagrama de Classes e Associações entre Classes](https://edisciplinas.usp.br/course/section.php?id=6991982)
 - **Materiais Disponibilizados:**
   - [`Aula 09 - parte 1 - Elementos de projeto de Software (Arquitetura, componentes, classes, objetos).pdf`](<./Material%20de%20Apoio/Aula%2009%20-%20parte%201%20-%20Elementos%20de%20projeto%20de%20Software%20(Arquitetura,%20componentes,%20classes,%20objetos).pdf>) *(Disponível localmente)*
-  - [Aula 09 - Parte 2 - Associações entre Classes de Domínio (Moodle)](https://edisciplinas.usp.br/mod/resource/view.php?id=6594930) *(Pendente download local em `./Material de Apoio/`)*
-  - [Aula 09 - videoaula 1 - Identificação de classes (Moodle)](https://edisciplinas.usp.br/mod/resource/view.php?id=6602399)
-  - [Aula 09 - videoaula 2 - Modelo conceitual (Moodle)](https://edisciplinas.usp.br/mod/resource/view.php?id=6602402)
-  - [`modelo-conceitual-biblioteca.puml`](./Material%20de%20Apoio/modelo-conceitual-biblioteca.puml) — Código PlantUML decodificado do link oficial [`codigo plantuml - modelo conceitual (classes do sistema)`](https://edisciplinas.usp.br/mod/resource/view.php?id=6602411)
+  - [`Aula 09 - Parte 2 - Associações entre Classes de Domínio.pdf`](<./Material%20de%20Apoio/Aula%2009%20-%20Parte%202%20-%20Associa%C3%A7%C3%B5es%20entre%20Classes%20de%20Dom%C3%ADnio.pdf>) *(Disponível localmente; [link Moodle](https://edisciplinas.usp.br/mod/resource/view.php?id=6594930))*
+  - [Aula 09 - videoaula 1 - Identificação de classes (Moodle)](https://edisciplinas.usp.br/mod/resource/view.php?id=6602399) *(vídeo `.mp4` em `./Material de Apoio/Vídeos/`, fora do git)*
+  - [Aula 09 - videoaula 2 - Modelo conceitual (Moodle)](https://edisciplinas.usp.br/mod/resource/view.php?id=6602402) · [Transcrição & síntese](<./Material%20de%20Apoio/Transcri%C3%A7%C3%B5es/Aula%2010%20-%20Modelo%20conceitual%20(diagrama%20de%20classes).md>) *(vídeo `.mp4` em `./Material de Apoio/Vídeos/`, fora do git)*
+  - [`codigo-modelo-conceitual-biblioteca.pdf`](<./Material%20de%20Apoio/codigo-modelo-conceitual-biblioteca.pdf>) e [`modelo-conceitual-biblioteca.puml`](./Material%20de%20Apoio/modelo-conceitual-biblioteca.puml) — Código PlantUML oficial ([link Moodle](https://edisciplinas.usp.br/mod/resource/view.php?id=6602411))
 - **Tarefa no Moodle:** [Atividade – Identificação de componentes e classes do sistema](https://edisciplinas.usp.br/mod/assign/view.php?id=6594985)
 
 ---
@@ -60,8 +60,12 @@ Módulo focado na transição da etapa de requisitos para o projeto (design) de 
 - **Conceitos Canônicos e Refinamento:** Unificação de termos e sinônimos para evitar duplicidade de modelos.
 - **Atributos e Tipagem:** Levantamento das propriedades que as entidades devem reter.
 
-### 4. Relacionamentos entre Classes
-- **Associação:** Conexão semântica direta com especificação de **multiplicidade** (`1`, `1..*`, `0..*`).
+### 4. Relacionamentos entre Classes (Aula 09 - Partes 1 e 2)
+- **Associação Binária e Multiplicidade:** Conexão semântica direta especificando mínimo e máximo de instâncias (`1`, `1..*`, `0..*`).
+- **Navegabilidade Unilateral (`—>`):** Indica o sentido em que as informações são transmitidas e métodos podem ser disparados (a classe destino não conhece a origem).
+- **Classes Associativas:** Necessárias em associações `* : *` quando há atributos próprios do vínculo que não pertencem a nenhuma das classes isoladamente.
+- **Associação Ternária / N-ária:** Útil para vínculos envolvendo 3+ classes (evitar quando possível por complexidade de leitura).
+- **Restrições e Estereótipos:** `{unique}` (associação sem repetição), `{readOnly}` (atributos somente leitura) e **`<<enumeration>>`** (lista valores válidos de um tipo de dado).
 - **Herança (Generalização/Especialização):** Reuso de estrutura e polimorfismo. Discussão sobre herança simples e múltipla (ex.: `Professor` e `Estudante` herdando de `Usuario` e `UsuarioUSP` no [`modelo-conceitual-biblioteca.puml`](./Material%20de%20Apoio/modelo-conceitual-biblioteca.puml)).
 - **Agregação (`◇` losango vazio):** Vínculo fraco ("todo-parte"), onde a parte pode existir independentemente do todo.
 - **Composição (`◆` losango preenchido):** Vínculo forte ("todo-parte"), onde a parte não existe ou não tem significado sem o todo.

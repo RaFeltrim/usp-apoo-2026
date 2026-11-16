@@ -1,0 +1,220 @@
+@startuml sd_ComprarPassagem
+' =====================================================================
+' SSC0124 - APOO | Atividade - Diagrama de Sequencias
+' Caso de Uso: Comprar Passagem (Plataforma de Venda de Passagens Rodoviarias)
+' Cobre: Fluxo Basico (passos 1-11), FA01 (cupom), FA02 (voltar e alterar
+'        assentos), FE01 (assento indisponivel), FE02 (pagamento recusado),
+'        FE03 (tempo de reserva esgotado)
+' Importar no diagrams.net: Organizar > Inserir > Avancado > PlantUML
+' =====================================================================
+skinparam sequenceMessageAlign center
+skinparam responseMessageBelowArrow true
+skinparam maxMessageSize 160
+hide footbox
+autonumber
+
+title sd Comprar Passagem
+
+actor Passageiro
+boundary ":CompraPassagemView" as View <<view>>
+control ":CompraPassagemController" as Ctrl <<controller>>
+entity ":VendasDatabase" as DB <<model>>
+entity "viagem:Viagem" as Viagem <<model>>
+entity "reserva:ReservaPoltrona" as Reserva <<model>>
+entity "compra:CompraPassagem" as Compra <<model>>
+entity "pagamento:Pagamento" as Pag <<model>>
+entity "bilhete:BilhetePassagem" as Bilhete <<model>>
+participant ":GatewayPagamento" as Gateway <<external>>
+
+' ---------- Passos 1-2: iniciar compra e exibir layout do onibus ----------
+Passageiro -> View : iniciarCompra(idViagem)
+activate View
+View -> Ctrl : iniciarCompra(idViagem, idPassageiro)
+activate Ctrl
+Ctrl -> DB : buscarViagem(idViagem) : Viagem
+activate DB
+DB --> Ctrl : viagem
+deactivate DB
+Ctrl -> DB : buscarPassageiro(idPassageiro) : Passageiro
+activate DB
+DB --> Ctrl : passageiro
+deactivate DB
+Ctrl -> Viagem : listarPoltronasDisponiveis() : List<Poltrona>
+activate Viagem
+Viagem --> Ctrl : poltronasDisponiveis
+deactivate Viagem
+Ctrl --> View : poltronasDisponiveis
+deactivate Ctrl
+View --> Passageiro : exibirLayoutOnibus(poltronasDisponiveis)
+deactivate View
+
+' ---------- Passos 3-4: selecionar e reservar assentos ----------
+Passageiro -> View : selecionarPoltronas(idsPoltronas)
+activate View
+View -> Ctrl : reservarPoltronas(idsPoltronas)
+activate Ctrl
+
+loop para cada idPoltrona em idsPoltronas
+  Ctrl -> Viagem : verificarDisponibilidade(idPoltrona) : Boolean
+  activate Viagem
+  Viagem --> Ctrl : disponivel
+  deactivate Viagem
+
+  alt disponivel = true
+    create Reserva
+    Ctrl -> Reserva : <<create>> ReservaPoltrona(passageiro, viagem, idPoltrona, minutosTimeout)
+    Ctrl -> DB : salvarReserva(reserva) : void
+    activate DB
+    deactivate DB
+  else disponivel = false (FE01 - Assento indisponivel)
+    Ctrl --> View : erroAssentoIndisponivel(idPoltrona)
+    View --> Passageiro : exibirAvisoIndisponibilidade()
+    note right of View : FE01: retorna ao passo 2\n(nova selecao de assentos)
+  end
+end
+
+Ctrl --> View : reservasCriadas
+deactivate Ctrl
+View --> Passageiro : solicitarDadosPassageiros()
+deactivate View
+
+' ---------- Passo 5: dados dos passageiros ----------
+Passageiro -> View : informarDadosPassageiros(listaDados)
+activate View
+View -> Ctrl : informarDadosPassageiros(listaDados)
+activate Ctrl
+loop para cada reserva criada
+  Ctrl -> Reserva : definirOcupante(nome, documento) : void
+  activate Reserva
+  deactivate Reserva
+end
+
+' ---------- Passo 6: resumo financeiro ----------
+create Compra
+Ctrl -> Compra : <<create>> CompraPassagem(passageiro, reservas)
+Ctrl -> Compra : calcularValorTotal() : Decimal
+activate Compra
+Compra -> Viagem : obterTarifa() : Decimal
+activate Viagem
+Viagem --> Compra : precoBase
+deactivate Viagem
+Compra --> Ctrl : valorTotal
+deactivate Compra
+Ctrl --> View : valorTotal
+deactivate Ctrl
+View --> Passageiro : exibirResumoFinanceiro(valorTotal)
+deactivate View
+
+' ---------- FA01: aplicar cupom (<<extend>> Aplicar Cupom Promocional) ----------
+opt Passageiro informou cupom (FA01 - Aplicar Cupom Promocional)
+  Passageiro -> View : informarCupom(codigoCupom)
+  activate View
+  View -> Ctrl : aplicarCupom(codigoCupom)
+  activate Ctrl
+  Ctrl -> Compra : aplicarCupom(codigoCupom) : Boolean
+  activate Compra
+  Compra --> Ctrl : cupomValido
+  deactivate Compra
+  Ctrl -> Compra : calcularValorTotal() : Decimal
+  activate Compra
+  Compra --> Ctrl : valorTotalComDesconto
+  deactivate Compra
+  Ctrl --> View : valorTotalComDesconto
+  deactivate Ctrl
+  View --> Passageiro : atualizarResumoFinanceiro(valorTotalComDesconto)
+  deactivate View
+end
+
+' ---------- FA02: voltar para alterar assentos ----------
+opt Passageiro decide alterar assentos (FA02)
+  Passageiro -> View : voltarSelecaoAssentos()
+  activate View
+  View -> Ctrl : descartarReservas()
+  activate Ctrl
+  Ctrl -> Compra : cancelar() : void
+  activate Compra
+  loop para cada reserva da compra
+    Compra -> Reserva : cancelar() : void
+    activate Reserva
+    deactivate Reserva
+  end
+  deactivate Compra
+  Ctrl --> View : reservasDescartadas
+  deactivate Ctrl
+  View --> Passageiro : exibirLayoutOnibus()
+  deactivate View
+  note right of View : FA02: retorna ao passo 2
+end
+
+' ---------- Passos 7-11: pagamento e emissao ----------
+Passageiro -> View : confirmarPagamento(dadosPagamento)
+activate View
+View -> Ctrl : finalizarCompra(dadosPagamento)
+activate Ctrl
+Ctrl -> Compra : verificarReservasValidas() : Boolean
+activate Compra
+loop para cada reserva da compra
+  Compra -> Reserva : estaExpirada() : Boolean
+  activate Reserva
+  Reserva --> Compra : expirada
+  deactivate Reserva
+end
+Compra --> Ctrl : reservasValidas
+deactivate Compra
+
+alt reservasValidas = false (FE03 - Tempo limite de reserva esgotado)
+  Ctrl -> Compra : cancelar() : void
+  activate Compra
+  deactivate Compra
+  Ctrl --> View : erroTempoEsgotado()
+  View --> Passageiro : exibirMensagemTimeout()
+  note right of View : FE03: operacao cancelada,\nretorna ao inicio
+
+else reservasValidas = true
+  create Pag
+  Ctrl -> Pag : <<create>> Pagamento(dadosPagamento.metodo, valorTotal)
+  Ctrl -> Pag : processar(dadosPagamento) : Boolean
+  activate Pag
+  Pag -> Gateway : autorizarCobranca(valor, dadosPagamento) : String
+  activate Gateway
+  Gateway --> Pag : codigoAutorizacao | recusa
+  deactivate Gateway
+  Pag --> Ctrl : aprovado
+  deactivate Pag
+
+  alt aprovado = true
+    Ctrl -> Compra : confirmar(pagamento) : List<BilhetePassagem>
+    activate Compra
+    loop para cada reserva da compra
+      Compra -> Reserva : confirmar() : void
+      activate Reserva
+      deactivate Reserva
+      create Bilhete
+      Compra -> Bilhete : <<create>> BilhetePassagem(reserva)
+      Compra -> Bilhete : gerarQrCode() : String
+      activate Bilhete
+      Bilhete --> Compra : codigoQrCode
+      deactivate Bilhete
+    end
+    Compra --> Ctrl : bilhetes
+    deactivate Compra
+    Ctrl -> DB : salvarCompra(compra) : void
+    activate DB
+    deactivate DB
+
+    ref over Ctrl, Compra : Notificar Usuario (compra, bilhetes)\n<<include>> - detalhado em sd Notificar Usuario
+
+    Ctrl --> View : bilhetes
+    View --> Passageiro : exibirConfirmacao(bilhetes)
+
+  else aprovado = false (FE02 - Pagamento recusado)
+    Ctrl --> View : erroPagamentoRecusado(motivo)
+    View --> Passageiro : exibirAlertaPagamentoRecusado()
+    note right of View : FE02: retorna ao passo 6\n(outra forma de pagamento)
+  end
+end
+
+deactivate Ctrl
+deactivate View
+@enduml
+

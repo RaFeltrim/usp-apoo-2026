@@ -1,14 +1,17 @@
 {
   "name": "observer---apresentacao",
   "version": "1.0.0",
-  "description": "",
+  "description": "Apresentação web do Padrão Observer e utilitário compartilhado de exportação PDF (Tópico 3 - SSC0124)",
   "main": "script.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "pdf:observer": "node generate_pdf.js",
+    "pdf:jigsaw": "node ../../02-Atividade-Comparacao-Categorias/generate_pdf.js",
+    "pdf:gof-completo": "node ../../03-Atividade-Comparacao-Categorias-Completa/generate_pdf.js",
+    "test": "node --check pdf_renderer.js && node --check generate_pdf.js && node --check script.js && node --check ../../02-Atividade-Comparacao-Categorias/generate_pdf.js && node --check ../../03-Atividade-Comparacao-Categorias-Completa/generate_pdf.js && node --test pdf_renderer.test.js"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "type": "commonjs",
   "dependencies": {
     "pdf-lib": "^1.17.1",

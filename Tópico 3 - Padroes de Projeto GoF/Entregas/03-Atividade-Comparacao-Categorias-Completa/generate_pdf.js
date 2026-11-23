@@ -1,33 +1,22 @@
-const puppeteer = require('../01-Padrao-Observer/Apresentacao-Web/node_modules/puppeteer-core');
-const fs = require('fs');
 const path = require('path');
+const { renderSinglePdf } = require('../01-Padrao-Observer/Apresentacao-Web/pdf_renderer');
 
 (async () => {
     try {
-        console.log("Launching browser for GoF Part 2 PDF (Individual)...");
-        const browser = await puppeteer.launch({
-            executablePath: 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe',
-            headless: 'new'
-        });
-        
-        const page = await browser.newPage();
-        
-        console.log("Loading HTML...");
-        const documentUrl = 'file:///' + path.join(__dirname, 'relatorio-gof-completo.html').replace(/\\/g, '/');
-        await page.goto(documentUrl, { waitUntil: 'networkidle0' });
-        
-        console.log("Generating PDF...");
+        console.log('Generating GoF Part 2 PDF (Individual)...');
         const outputPath = path.join(__dirname, 'Rafael_Feltrim_Atividade3_Comparacao_Categorias_GoF.pdf');
-        await page.pdf({
-            path: outputPath,
-            format: 'A4',
-            printBackground: true,
-            margin: { top: '12mm', right: '12mm', bottom: '12mm', left: '12mm' }
+        await renderSinglePdf({
+            inputHtml: path.join(__dirname, 'relatorio-gof-completo.html'),
+            outputPdf: outputPath,
+            pdfOptions: {
+                format: 'A4',
+                printBackground: true,
+                margin: { top: '12mm', right: '12mm', bottom: '12mm', left: '12mm' },
+            },
         });
-
-        await browser.close();
         console.log('SUCCESS: Rafael_Feltrim_Atividade3_Comparacao_Categorias_GoF.pdf gerado com sucesso!');
     } catch (err) {
-        console.error("Error generating PDF:", err);
+        console.error('Error generating PDF:', err);
+        process.exitCode = 1;
     }
 })();

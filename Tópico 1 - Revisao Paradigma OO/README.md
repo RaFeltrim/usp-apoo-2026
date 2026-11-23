@@ -2,7 +2,7 @@
 
 ## 🔗 Links e Recursos do e-Disciplinas
 - **Seção Moodle:** [Revisão - Programação Orientada a Objetos](https://edisciplinas.usp.br/course/section.php?id=6991976) & [O Paradigma Orientado a Objetos](https://edisciplinas.usp.br/course/section.php?id=6991978)
-- **Arquivo da Aula:** [`Aula 01 - O paradigma de orientação a objetos.pdf`](./Aula%2001%20-%20O%20paradigma%20de%20orienta%C3%A7%C3%A3o%20a%20objetos.pdf)
+- **Arquivo da Aula:** [`Aula 01 - O paradigma de orientação a objetos.pdf`](./Material%20de%20Apoio/Aula%2001%20-%20O%20paradigma%20de%20orienta%C3%A7%C3%A3o%20a%20objetos.pdf)
 
 ---
 

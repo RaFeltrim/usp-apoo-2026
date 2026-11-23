@@ -28,6 +28,6 @@
 ---
 
 ## 📂 Arquivos de Entrega
-- [`Atividade_3_Padroes_GoF_Segunda_Parte_Grupo.pdf`](./Atividade_3_Padroes_GoF_Segunda_Parte_Grupo.pdf): Documento PDF final gerado pronto para submissão no e-Disciplinas.
+- [`Rafael_Feltrim_Atividade3_Comparacao_Categorias_GoF.pdf`](./Rafael_Feltrim_Atividade3_Comparacao_Categorias_GoF.pdf): Documento PDF final gerado pronto para submissão no e-Disciplinas.
 - [`relatorio-gof-completo.html`](./relatorio-gof-completo.html): Versão web estruturada com design system da USP/ICMC.
 - [`generate_pdf.js`](./generate_pdf.js): Automação Puppeteer para compilação PDF.

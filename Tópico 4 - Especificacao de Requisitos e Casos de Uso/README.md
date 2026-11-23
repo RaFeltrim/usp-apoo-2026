@@ -11,7 +11,7 @@ Módulo dedicado ao levantamento de requisitos, modelagem comportamental com Dia
   - [Especificação textual de casos de uso e diagramas de atividades](https://edisciplinas.usp.br/course/section.php?id=6991981)
 
 - **Materiais de Apoio da Docente:**
-  - [`Aula 06 - Análise e Especificação de Requisitos e UC.pdf`](./Material%20de%20Apoio/Aula%2006%20-%20Análise%20e%20Especificação%20de%20Requisitos%20e%20UC.pdf)
+  - [`Aula 06 - Análise e Especificação de Requisitos.pdf`](./Material%20de%20Apoio/Aula%2006%20-%20Análise%20e%20Especificação%20de%20Requisitos.pdf)
   - [`Aula 0 6- Anexo A - Descrição do Modelo de Qualidade ISO_IEC 25010 - SQUARE.pdf`](./Material%20de%20Apoio/Aula%200%206-%20Anexo%20A%20-%20Descrição%20do%20Modelo%20de%20Qualidade%20ISO_IEC%2025010%20-%20SQUARE.pdf)
   - [`Aula 07 - Casos de Uso - relações.pdf`](./Material%20de%20Apoio/Aula%2007%20-%20Casos%20de%20Uso%20-%20relações.pdf)
   - [`Aula 8 - Casos de uso - prática.pdf`](./Material%20de%20Apoio/Aula%208%20-%20Casos%20de%20uso%20-%20prática.pdf)

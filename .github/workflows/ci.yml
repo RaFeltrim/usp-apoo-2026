@@ -1,0 +1,66 @@
+name: Validate Repository & UML Models
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Graphviz and PlantUML v1.2026.10
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y graphviz
+          curl -fsSL -o /tmp/plantuml-1.2026.10.jar https://github.com/plantuml/plantuml/releases/download/v1.2026.10/plantuml-1.2026.10.jar
+
+      - name: Check repository hygiene (no local paths or Graphify cache)
+        run: python scripts/check_repo_hygiene.py
+
+      - name: Validate relative links across Markdown files
+        run: python scripts/check_links.py
+
+      - name: Check Tópico 6 UML sequence-to-class consistency
+        run: python scripts/check_consistency.py
+
+      - name: Audit Tópico 7 Final Project (5 levels + PlantUML syntax)
+        env:
+          PLANTUML_JAR: /tmp/plantuml-1.2026.10.jar
+        run: python scripts/audit_projeto_final.py
+
+      - name: Validate PlantUML syntax for Tópicos 5 and 6
+        run: |
+          java -jar /tmp/plantuml-1.2026.10.jar -checkonly -charset UTF-8 \
+            "Tópico 5 - Componentes, Modelo Conceitual e Classes/Material de Apoio/modelo-conceitual-biblioteca.puml" \
+            "Tópico 6 - Diagrama de Sequencias/Entregas/Atividade - Diagrama de Sequencias/"*.puml
+
+      - name: Install and test Node PDF renderer & presentation scripts
+        working-directory: Tópico 3 - Padroes de Projeto GoF/Entregas/01-Padrao-Observer/Apresentacao-Web
+        run: |
+          npm ci
+          npm test

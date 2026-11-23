@@ -213,9 +213,9 @@
                 </div>
                 <div class="code-container">
                     <div class="code-tabs">
-                        <button class="code-tab active" onclick="showTab('java-int', this)">Interfaces</button>
-                        <button class="code-tab" onclick="showTab('java-sub', this)">Concrete Subject</button>
-                        <button class="code-tab" onclick="showTab('java-obs', this)">Concrete Observer</button>
+                        <button type="button" class="code-tab active" data-tab="java-int">Interfaces</button>
+                        <button type="button" class="code-tab" data-tab="java-sub">Concrete Subject</button>
+                        <button type="button" class="code-tab" data-tab="java-obs">Concrete Observer</button>
                     </div>
                     
                     <div class="code-content" id="java-int">
@@ -353,9 +353,9 @@
     <nav class="slide-nav">
         <div class="nav-brand">SSC0124 — APOO</div>
         <div class="nav-controls">
-            <button class="nav-btn" id="prevBtn" onclick="changeSlide(-1)" aria-label="Anterior">◀ Anterior</button>
+            <button type="button" class="nav-btn" id="prevBtn" aria-label="Anterior">◀ Anterior</button>
             <span class="slide-counter" id="slideCounter">1 / 10</span>
-            <button class="nav-btn" id="nextBtn" onclick="changeSlide(1)" aria-label="Próximo">Próximo ▶</button>
+            <button type="button" class="nav-btn" id="nextBtn" aria-label="Próximo">Próximo ▶</button>
         </div>
     </nav>
 

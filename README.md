@@ -164,7 +164,18 @@ APOO - USP/
 │   ├── graph.html                                        # Visualização interativa
 │   └── graph.json                                        # Base estruturada GraphRAG
 │
-├── .gitignore                                            # Filtro de dependências e arquivos temporários
+├── 📁 scripts/                                           # Validadores portáveis de links, UML e higiene
+│   ├── audit_projeto_final.py                            # Auditoria 5 níveis do Projeto Final (Tópico 7)
+│   ├── check_consistency.py                              # Consistência Classes × Sequências (Tópico 6)
+│   ├── check_links.py                                    # Verificador global de links relativos em .md
+│   └── check_repo_hygiene.py                             # Bloqueio de paths locais e caches no Git
+│
+├── 📁 .github/workflows/
+│   └── ci.yml                                            # Pipeline CI (Python, Java/PlantUML, Node)
+│
+├── .gitattributes                                        # Atributos Linguist (graphify-out e *.puml)
+├── .gitignore                                            # Filtro de dependências, caches locais e vídeos
+├── LICENSE                                               # Licença MIT
 └── README.md                                             # Portal central de navegação
 ```
 
@@ -204,7 +215,26 @@ APOO - USP/
 | Preparar para a Prova Final | Pasta **Exemplos de Prova** (provas 2024-2 e 2026 + mapa de temas) |
 | Acompanhar entregas, Swarm Boards e pendências | [GitHub Project #6](https://github.com/users/RaFeltrim/projects/6) ([aba Projects do repositório](https://github.com/RaFeltrim/usp-apoo-2026/projects)) |
 
-Este repositório reúne materiais acadêmicos; não possui um comando único de instalação, execução ou testes documentado. Cada entrega deve ser consultada em seu contexto.
+---
+
+## 🧪 Validação & Reprodutibilidade
+
+As verificações automatizadas do repositório ficam em [`scripts/`](./scripts/) e são executadas pelo workflow [`.github/workflows/ci.yml`](./.github/workflows/ci.yml):
+
+```bash
+# Higiene Git, links Markdown e consistência UML (Tópico 6)
+python scripts/check_repo_hygiene.py
+python scripts/check_links.py
+python scripts/check_consistency.py
+
+# Auditoria em 5 níveis + sintaxe PlantUML (Tópico 7)
+export PLANTUML_JAR=/caminho/para/plantuml.jar
+python scripts/audit_projeto_final.py
+
+# Testes Node.js e exportação PDF (Tópico 3 — defina CHROME_PATH se necessário)
+cd "Tópico 3 - Padroes de Projeto GoF/Entregas/01-Padrao-Observer/Apresentacao-Web"
+npm ci && npm test
+```
 
 ### Verificação e responsabilidade
 

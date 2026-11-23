@@ -2,7 +2,7 @@
 
 ## 🔗 Links e Recursos do e-Disciplinas
 - **Seção Moodle:** [Processos de desenvolvimento de software](https://edisciplinas.usp.br/course/section.php?id=6991977)
-- **Arquivo da Aula:** [`Aula 02 - Análise e Design de Software e o Processo Unificado.pdf`](./Aula%2002%20-%20An%C3%A1lise%20e%20Design%20de%20Software%20e%20o%20Processo%20Unificado.pdf)
+- **Arquivo da Aula:** [`Aula 02 - Análise e Design de Software e o Processo Unificado.pdf`](./Material%20de%20Apoio/Aula%2002%20-%20An%C3%A1lise%20e%20Design%20de%20Software%20e%20o%20Processo%20Unificado.pdf)
 - **Tarefa no Moodle:** [Leitura e Resumo - Processos de desenvolvimento de software (Individual)](https://edisciplinas.usp.br/mod/assign/view.php?id=6526924)
 
 ---
@@ -13,7 +13,7 @@
 - **Enunciado:** Leitura do Capítulo 2 do livro *Engenharia de Software Moderna* (Prof. Marco Tulio Valente).
   - *Link do Livro:* [https://engsoftmoderna.info/cap2.html](https://engsoftmoderna.info/cap2.html)
   - *Formato de Entrega:* Resumo escrito à mão (digitalizado/escaneado) sumarizando o entendimento da leitura.
-- **Arquivo Entregue:** [`Atividade 1 - Resumo.pdf`](./Atividade%201%20-%20Resumo.pdf)
+- **Arquivo Entregue:** [`Atividade 1 - Resumo.pdf`](./Entregas/Atividade%201%20-%20Resumo.pdf)
 
 ---
 

@@ -1,6 +1,5 @@
 # Dependencies
 node_modules/
-package-lock.json
 
 # Build & Cache
 .DS_Store
@@ -19,3 +18,9 @@ Thumbs.db
 
 # Ferramentas locais
 .venv-tools/
+
+# Graphify (metadados locais e cache transitório)
+graphify-out/.graphify_python
+graphify-out/.graphify_root
+graphify-out/cost.json
+graphify-out/cache/

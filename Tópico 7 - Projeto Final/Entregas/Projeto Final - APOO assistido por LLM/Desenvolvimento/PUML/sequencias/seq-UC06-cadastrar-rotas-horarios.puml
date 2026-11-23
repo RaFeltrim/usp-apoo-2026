@@ -1,0 +1,35 @@
+@startuml
+actor "Empresa de Viação" as EmpresaViacao
+participant "r : Rota" as Rota
+participant "v : Viagem" as Viagem
+
+alt nova rota e horario
+  EmpresaViacao -> Rota : cadastrarRota(origem, destino, paradas, distanciaKm, duracaoMin)
+  activate Rota
+  Rota -> Rota : validarConsistencia()
+  alt dados consistentes
+    Rota --> EmpresaViacao : rotaCadastrada
+    EmpresaViacao -> Viagem : agendarHorario(rota, dataPartida, dataChegada)
+    activate Viagem
+    Viagem --> EmpresaViacao : horarioAgendado
+    deactivate Viagem
+  else dados invalidos ou conflitantes
+    Rota --> EmpresaViacao : erroValidacao
+  end
+  deactivate Rota
+else atualizar rota ou horario existente
+  EmpresaViacao -> Viagem : verificarBilhetesEmitidos()
+  activate Viagem
+  alt sem bilhetes conflitantes
+    Viagem --> EmpresaViacao : liberadoParaEdicao
+    deactivate Viagem
+    EmpresaViacao -> Rota : atualizarRota(paradas, ativa)
+    activate Rota
+    Rota -> Rota : validarConsistencia()
+    Rota --> EmpresaViacao : rotaAtualizada
+    deactivate Rota
+  else existem bilhetes emitidos
+    Viagem --> EmpresaViacao : alertaPassageirosImpactados
+  end
+end
+@enduml

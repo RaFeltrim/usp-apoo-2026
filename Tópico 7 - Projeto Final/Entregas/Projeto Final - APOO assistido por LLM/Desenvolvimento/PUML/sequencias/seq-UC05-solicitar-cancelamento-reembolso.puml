@@ -1,0 +1,23 @@
+@startuml
+actor Passageiro
+participant "b : Bilhete" as Bilhete
+participant "spv : SolicitacaoPosVenda" as SolicitacaoPosVenda
+
+Passageiro -> Bilhete : consultarPorPassageiro(passageiro)
+activate Bilhete
+Bilhete --> Passageiro : listaBilhetes
+Passageiro -> Bilhete : validarElegibilidadePosVenda()
+
+alt bilhete elegivel
+  Bilhete --> Passageiro : termosERegras
+  deactivate Bilhete
+  opt passageiro confirma termos
+    Passageiro -> SolicitacaoPosVenda : registrarSolicitacao(bilhete, tipo, motivo)
+    activate SolicitacaoPosVenda
+    SolicitacaoPosVenda --> Passageiro : protocoloSolicitacao
+    deactivate SolicitacaoPosVenda
+  end
+else prazo expirado ou bilhete inelegivel
+  Bilhete --> Passageiro : avisoInelegibilidade
+end
+@enduml

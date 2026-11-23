@@ -1,0 +1,28 @@
+@startuml
+actor Passageiro
+participant "v : Viagem" as Viagem
+participant "r : Rota" as Rota
+participant "ev : EmpresaViacao" as EmpresaViacao
+
+Passageiro -> Viagem : buscarDisponiveis(origem, destino, data)
+activate Viagem
+Viagem -> Rota : obterDetalhesTrajeto()
+activate Rota
+Rota --> Viagem : trajeto
+deactivate Rota
+Viagem -> EmpresaViacao : obterDadosViacao()
+activate EmpresaViacao
+EmpresaViacao --> Viagem : dadosViacao
+deactivate EmpresaViacao
+
+alt viagens encontradas
+  Viagem --> Passageiro : listaViagens
+  opt passageiro aplica filtro ou ordenacao
+    Passageiro -> Viagem : compararOpcoes(criterioOrdenacao)
+    Viagem --> Passageiro : listaOrdenada
+  end
+else nenhuma viagem encontrada
+  Viagem --> Passageiro : avisoSemResultados
+end
+deactivate Viagem
+@enduml

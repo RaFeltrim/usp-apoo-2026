@@ -1,0 +1,45 @@
+@startuml
+actor Passageiro
+participant "v : Viagem" as Viagem
+participant "o : Onibus" as Onibus
+participant "a : Assento" as Assento
+participant "res : Reserva" as Reserva
+
+Passageiro -> Viagem : obterMapaAssentos()
+activate Viagem
+Viagem -> Onibus : listarAssentos()
+activate Onibus
+Onibus --> Viagem : mapaPoltronas
+deactivate Onibus
+Viagem --> Passageiro : exibeMapaPoltronas
+deactivate Viagem
+
+Passageiro -> Assento : verificarDisponibilidade()
+activate Assento
+alt assento disponivel
+  Assento --> Passageiro : disponivel
+  Passageiro -> Assento : marcarReservado()
+  Assento --> Passageiro : assentoBloqueado
+  deactivate Assento
+
+  Passageiro -> Reserva : criarReservaTemporaria(passageiro, viagem, assentos)
+  activate Reserva
+  Reserva --> Passageiro : reservaCriadaTTL
+
+  Passageiro -> Reserva : registrarDadosViajantes(dadosViajantes)
+  Reserva -> Reserva : verificarExpiracao()
+  alt dentro do prazo TTL
+    Reserva --> Passageiro : reservaProntaParaPagamento
+  else reserva expirada
+    Reserva -> Assento : liberarAssento()
+    activate Assento
+    Assento --> Reserva : liberado
+    deactivate Assento
+    Reserva --> Passageiro : avisoExpiracao
+  end
+  deactivate Reserva
+else assento ocupado concorrentemente
+  Assento --> Passageiro : avisoIndisponivel
+  deactivate Assento
+end
+@enduml

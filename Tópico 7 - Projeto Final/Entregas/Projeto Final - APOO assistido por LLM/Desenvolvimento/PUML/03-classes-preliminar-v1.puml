@@ -1,0 +1,20 @@
+@startuml
+class Usuario
+class Passageiro
+class EmpresaViacao
+class Motorista
+class Administrador
+class Rota
+class Onibus
+class Assento
+class Viagem
+class Reserva
+class Bilhete
+class Pagamento
+class SolicitacaoPosVenda
+class Notificacao
+class Relatorio
+class ConfiguracaoIntegracao
+class GatewayPagamento
+class ServicoNotificacoes
+@enduml

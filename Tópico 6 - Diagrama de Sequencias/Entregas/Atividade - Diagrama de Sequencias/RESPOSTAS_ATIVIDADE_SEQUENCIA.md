@@ -120,5 +120,5 @@ Documento consolidado pronto para envio (8 páginas, em vetor): [Atividade - Dia
 - [x] Descrição textual estendida completa de **Comprar Passagem** (cenário principal + FA01–FA02 + FE01–FE03)
 - [x] Entidades MVC, lista de métodos de modelo e diagrama de classes atualizado ([diagrama-classes-com-metodos.puml](./diagrama-classes-com-metodos.puml))
 - [x] Diagramas de sequência `sd Comprar Passagem` e `sd Notificar Usuario` (com **gate**)
-- [ ] Enviar [Atividade - Diagrama de Sequencias - Rafael Feltrim.pdf](<./Atividade - Diagrama de Sequencias - Rafael Feltrim.pdf>) no e-Disciplinas até **16/11, 12:00** *(nota: os diagramas em `.puml` foram renderizados via PlantUML em SVG vetorial; caso deseje editar ou reexportar pelo `app.diagrams.net`, use **Organizar → Inserir → Avançado → PlantUML** com os arquivos desta pasta)*
+- [x] Enviar [Atividade - Diagrama de Sequencias - Rafael Feltrim.pdf](<./Atividade - Diagrama de Sequencias - Rafael Feltrim.pdf>) no e-Disciplinas até **16/11, 12:00** *(nota: os diagramas em `.puml` foram renderizados via PlantUML em SVG vetorial; caso deseje editar ou reexportar pelo `app.diagrams.net`, use **Organizar → Inserir → Avançado → PlantUML** com os arquivos desta pasta)*
 

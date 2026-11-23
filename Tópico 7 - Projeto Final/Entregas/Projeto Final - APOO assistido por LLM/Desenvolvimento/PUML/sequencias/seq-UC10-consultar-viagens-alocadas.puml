@@ -1,0 +1,32 @@
+@startuml
+actor Motorista
+participant "m : Motorista" as MotoristaObj
+participant "v : Viagem" as Viagem
+participant "r : Rota" as Rota
+participant "o : Onibus" as Onibus
+
+Motorista -> MotoristaObj : consultarEscala(dataInicio, dataFim)
+activate MotoristaObj
+MotoristaObj -> Viagem : listarPorMotorista(motorista, dataInicio, dataFim)
+activate Viagem
+
+alt viagens alocadas encontradas
+  loop para cada viagem alocada
+    Viagem -> Rota : obterDetalhesTrajeto()
+    activate Rota
+    Rota --> Viagem : trajeto
+    deactivate Rota
+    Viagem -> Onibus : obterIdentificacao()
+    activate Onibus
+    Onibus --> Viagem : dadosOnibus
+    deactivate Onibus
+  end
+  Viagem --> MotoristaObj : escalaCompleta
+  MotoristaObj --> Motorista : exibeViagensAlocadas
+else nenhuma viagem alocada no periodo
+  Viagem --> MotoristaObj : listaVazia
+  MotoristaObj --> Motorista : avisoEscalaVazia
+end
+deactivate Viagem
+deactivate MotoristaObj
+@enduml

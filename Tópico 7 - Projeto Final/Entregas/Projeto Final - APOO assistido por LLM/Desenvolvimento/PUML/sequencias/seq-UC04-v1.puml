@@ -1,0 +1,27 @@
+@startuml
+actor Passageiro
+participant "u : Usuario" as Usuario
+participant "n : Notificacao" as Notificacao
+participant "sn : ServicoNotificacoes" as ServicoNotificacoes
+
+activate Usuario
+Usuario -> Usuario : obterContatoPreferencial()
+Usuario --> Notificacao : contatoPreferencial
+deactivate Usuario
+
+activate Notificacao
+Notificacao -> Notificacao : comporMensagem(destinatario, canal, conteudo)
+Notificacao -> ServicoNotificacoes : enviarMensagem(canal, destinatario, conteudo)
+activate ServicoNotificacoes
+
+alt entrega bem-sucedida
+  ServicoNotificacoes --> Passageiro : entregaEmailOuWhatsApp
+  ServicoNotificacoes --> Notificacao : statusEntregue
+  Notificacao -> Notificacao : atualizarStatusEnvio(status)
+else falha no servico externo
+  ServicoNotificacoes --> Notificacao : erroEnvio
+  Notificacao -> Notificacao : atualizarStatusEnvio(status)
+end
+deactivate ServicoNotificacoes
+deactivate Notificacao
+@enduml

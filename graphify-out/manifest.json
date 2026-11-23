@@ -30,16 +30,16 @@
     "semantic_hash": "920b5ca24c52dcd45b2189a13f1b61d0"
   },
   "README.md": {
-    "mtime": 1794834650.3508584,
-    "seen": 1794834927.918673,
-    "ast_hash": "b89b21caaec6a46618b918bd33677ea9",
-    "semantic_hash": "b89b21caaec6a46618b918bd33677ea9"
+    "mtime": 1795444222.6285036,
+    "seen": 1795444294.851654,
+    "ast_hash": "d4a3aa1234910e5eefa0b1d447734b91",
+    "semantic_hash": "d4a3aa1234910e5eefa0b1d447734b91"
   },
   "T\u00f3pico 0 - Informacoes Gerais/README.md": {
-    "mtime": 1794834615.0902975,
-    "seen": 1794834927.9187071,
-    "ast_hash": "edefd37973cb6d1e4eb00f0d433d88a5",
-    "semantic_hash": "edefd37973cb6d1e4eb00f0d433d88a5"
+    "mtime": 1795444225.5383759,
+    "seen": 1795444294.8516622,
+    "ast_hash": "8f1a92c6cf1d674e30a72668c37680bf",
+    "semantic_hash": "8f1a92c6cf1d674e30a72668c37680bf"
   },
   "T\u00f3pico 1 - Revisao Paradigma OO/README.md": {
     "mtime": 1787579925.974394,
@@ -180,10 +180,10 @@
     "semantic_hash": "db02263cf1bfa27ffa827c40cf535abe"
   },
   "T\u00f3pico 7 - Projeto Final/README.md": {
-    "mtime": 1794834613.111904,
-    "seen": 1794834927.9422607,
-    "ast_hash": "4278323688ff8dbfb120c2f8c5cf9e98",
-    "semantic_hash": "4278323688ff8dbfb120c2f8c5cf9e98"
+    "mtime": 1795444217.8780143,
+    "seen": 1795444294.8543255,
+    "ast_hash": "37d515012ff616fa6c25aefaa673ce36",
+    "semantic_hash": "37d515012ff616fa6c25aefaa673ce36"
   },
   "T\u00f3pico 5 - Componentes, Modelo Conceitual e Classes/Entregas/Atividade - Identificacao de Componentes e Classes/Atividade \u2013 Identifica\u00e7\u00e3o de Componentes e Classes do Sistema.pdf": {
     "mtime": 1790684421.8077564,
@@ -204,10 +204,10 @@
     "semantic_hash": "b0000f5993e79123d6f42a9701d9377c"
   },
   "T\u00f3pico 7 - Projeto Final/Entregas/Projeto Final - APOO assistido por LLM/Desenvolvimento/Historias-de-Usuario.md": {
-    "mtime": 1794834494.4935224,
-    "seen": 1794834927.9422312,
-    "ast_hash": "e21ed4fddb64c2f528a2016159376b13",
-    "semantic_hash": "e21ed4fddb64c2f528a2016159376b13"
+    "mtime": 1795442675.9714916,
+    "seen": 1795444294.8543127,
+    "ast_hash": "09edf218110a514fe56a07011b30664c",
+    "semantic_hash": "09edf218110a514fe56a07011b30664c"
   },
   "Exemplos de Prova/Material de Apoio/C\u00f3pia de Prova APOO 2026.docx.pdf": {
     "mtime": 1794343003.3002112,
@@ -234,21 +234,45 @@
     "semantic_hash": "a1068c97d43db20abbac445a74635b74"
   },
   "T\u00f3pico 7 - Projeto Final/Material de Apoio/Diretrizes - APOO apoiado por LLM.docx.pdf": {
-    "mtime": 1794830951.9527159,
-    "seen": 1794834928.0082793,
-    "ast_hash": "0d9eb25dadf339065b9e768b076db788",
-    "semantic_hash": "0d9eb25dadf339065b9e768b076db788"
+    "mtime": 1795440926.6683476,
+    "seen": 1795444294.8647635,
+    "ast_hash": "de548aa75d4382983c0e3a485834158c",
+    "semantic_hash": "de548aa75d4382983c0e3a485834158c"
   },
   "T\u00f3pico 7 - Projeto Final/Material de Apoio/Estrutura de relat\u00f3rio.docx.pdf": {
-    "mtime": 1794830924.3702135,
-    "seen": 1794834928.008297,
-    "ast_hash": "6039c6c779902d4de3854e18217effb8",
-    "semantic_hash": "6039c6c779902d4de3854e18217effb8"
+    "mtime": 1795440922.7755897,
+    "seen": 1795444294.8647695,
+    "ast_hash": "a5c2a1f27a18e93dde1e079cfdafec96",
+    "semantic_hash": "a5c2a1f27a18e93dde1e079cfdafec96"
   },
   "T\u00f3pico 7 - Projeto Final/Material de Apoio/Projeto Final - APOO assistido por LLM.docx.pdf": {
-    "mtime": 1794829975.8080018,
-    "seen": 1794834928.00831,
-    "ast_hash": "bbc4168ba3bfa66d313eabab4c7a6542",
-    "semantic_hash": "bbc4168ba3bfa66d313eabab4c7a6542"
+    "mtime": 1795440931.2300026,
+    "seen": 1795444294.864776,
+    "ast_hash": "968a5949fd4cd77875cba40875d9af74",
+    "semantic_hash": "968a5949fd4cd77875cba40875d9af74"
+  },
+  "T\u00f3pico 7 - Projeto Final/Entregas/Projeto Final - APOO assistido por LLM/Desenvolvimento/Descricoes-Textuais-UC.md": {
+    "mtime": 1795443036.3238776,
+    "seen": 1795444294.8543015,
+    "ast_hash": "65569d27712a6f8e66dff9657ed46049",
+    "semantic_hash": "65569d27712a6f8e66dff9657ed46049"
+  },
+  "T\u00f3pico 7 - Projeto Final/Entregas/Projeto Final - APOO assistido por LLM/Pacote-ZIP/Prompts/05-prompts-sequencias.md": {
+    "mtime": 1795443602.057847,
+    "seen": 1795444294.8543174,
+    "ast_hash": "cb5761d4b1d9e3e5febfe5885add478b",
+    "semantic_hash": "cb5761d4b1d9e3e5febfe5885add478b"
+  },
+  "T\u00f3pico 7 - Projeto Final/Entregas/Projeto Final - APOO assistido por LLM/Pacote-ZIP/Prompts/06-prompts-classes-completo.md": {
+    "mtime": 1795443716.0757706,
+    "seen": 1795444294.8543205,
+    "ast_hash": "2b43e0882364c349fbe738820d8ebd8b",
+    "semantic_hash": "2b43e0882364c349fbe738820d8ebd8b"
+  },
+  "T\u00f3pico 7 - Projeto Final/Entregas/Projeto Final - APOO assistido por LLM/Pacote-ZIP/Relatorio.pdf": {
+    "mtime": 1795444122.4300995,
+    "seen": 1795444294.8647535,
+    "ast_hash": "2d78b7b4fd014fb20ca98337432b33bc",
+    "semantic_hash": "2d78b7b4fd014fb20ca98337432b33bc"
   }
 }

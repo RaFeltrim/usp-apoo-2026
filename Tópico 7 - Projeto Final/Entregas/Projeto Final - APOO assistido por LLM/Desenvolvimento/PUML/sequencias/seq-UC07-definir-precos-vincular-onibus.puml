@@ -1,0 +1,24 @@
+@startuml
+actor "Empresa de Viação" as EmpresaViacao
+participant "v : Viagem" as Viagem
+participant "o : Onibus" as Onibus
+
+EmpresaViacao -> Viagem : definirPreco(preco)
+activate Viagem
+alt preco valido
+  Viagem --> EmpresaViacao : precoAtualizado
+  EmpresaViacao -> Onibus : verificarDisponibilidadeHorario(dataPartida, dataChegada)
+  activate Onibus
+  alt onibus disponivel no intervalo
+    Onibus --> EmpresaViacao : onibusDisponivel
+    deactivate Onibus
+    EmpresaViacao -> Viagem : vincularOnibus(onibus)
+    Viagem --> EmpresaViacao : viagemProntaParaVenda
+  else conflito de alocacao
+    Onibus --> EmpresaViacao : erroConflitoHorario
+  end
+else preco menor ou igual a zero
+  Viagem --> EmpresaViacao : erroPrecoInvalido
+end
+deactivate Viagem
+@enduml

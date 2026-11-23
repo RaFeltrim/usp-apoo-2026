@@ -1,0 +1,26 @@
+@startuml
+actor "Empresa de Viação" as EmpresaViacao
+participant "v : Viagem" as Viagem
+participant "b : Bilhete" as Bilhete
+participant "res : Reserva" as Reserva
+
+EmpresaViacao -> Viagem : listarPorEmpresa(empresa, periodoInicio, periodoFim)
+activate Viagem
+
+alt viagens encontradas no periodo
+  loop para cada viagem ofertada
+    Viagem -> Bilhete : contarVendidosPorViagem(viagem)
+    activate Bilhete
+    Bilhete --> Viagem : qtdVendidos
+    deactivate Bilhete
+    Viagem -> Reserva : contarAtivasPorViagem(viagem)
+    activate Reserva
+    Reserva --> Viagem : qtdReservasAtivas
+    deactivate Reserva
+  end
+  Viagem --> EmpresaViacao : painelVendasEOcupacao
+else nenhuma venda no periodo
+  Viagem --> EmpresaViacao : avisoSemMovimentacao
+end
+deactivate Viagem
+@enduml

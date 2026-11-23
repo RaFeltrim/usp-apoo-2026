@@ -1,0 +1,24 @@
+@startuml
+actor Motorista
+participant "v : Viagem" as Viagem
+participant "b : Bilhete" as Bilhete
+
+Motorista -> Viagem : validarAlocacaoMotorista(motorista)
+activate Viagem
+Viagem --> Motorista : alocacaoConfirmada
+deactivate Viagem
+
+Motorista -> Bilhete : listarPassageirosConfirmados(viagem)
+activate Bilhete
+
+alt existem passageiros confirmados
+  Bilhete --> Motorista : listaPassageirosOrdenada
+  opt motorista busca passageiro especifico
+    Motorista -> Bilhete : filtrarPassageiro(termo)
+    Bilhete --> Motorista : resultadoFiltrado
+  end
+else viagem sem passageiros confirmados
+  Bilhete --> Motorista : avisoSemPassageiros
+end
+deactivate Bilhete
+@enduml

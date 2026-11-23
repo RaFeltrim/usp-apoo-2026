@@ -1,0 +1,33 @@
+@startuml
+left to right direction
+skinparam linetype polyline
+
+package "Plataforma ClickBus" {
+  component "Portal Web / Interface do Usuário" as PortalWeb
+  component "Gestão de Usuários e Autenticação" as GestaoUsuarios
+  component "Catálogo de Viagens, Rotas e Frota" as CatalogoViagens
+  component "Reservas, Assentos e Bilhetes" as ReservasBilhetes
+  component "Pagamentos e Pós-Venda" as PagamentosPosVenda
+  component "Monitoramento e Relatórios Gerenciais" as MonitoramentoRelatorios
+}
+
+component "Plataforma de Pagamento" as PlataformaPagamento <<Sistema Externo>>
+component "Serviço de Notificações" as ServicoNotificacoes <<Sistema Externo>>
+
+PortalWeb ..> GestaoUsuarios : autentica / gerencia usuários
+PortalWeb ..> CatalogoViagens : pesquisa / gerencia rotas e frota
+PortalWeb ..> ReservasBilhetes : reserva assentos / lista embarque
+PortalWeb ..> PagamentosPosVenda : efetua pagamento / pós-venda
+PortalWeb ..> MonitoramentoRelatorios : monitora / gera relatórios
+
+CatalogoViagens ..> GestaoUsuarios : valida viação e motorista
+ReservasBilhetes ..> CatalogoViagens : consulta viagens e poltronas
+PagamentosPosVenda ..> ReservasBilhetes : confirma / libera bilhete e assento
+
+MonitoramentoRelatorios ..> ReservasBilhetes : lê ocupação e bilhetes
+MonitoramentoRelatorios ..> PagamentosPosVenda : lê transações e estornos
+MonitoramentoRelatorios ..> ServicoNotificacoes : monitora fila de envios
+
+PagamentosPosVenda ..> PlataformaPagamento : processa pagamento / estorno
+PagamentosPosVenda ..> ServicoNotificacoes : envia bilhete e notificações
+@enduml

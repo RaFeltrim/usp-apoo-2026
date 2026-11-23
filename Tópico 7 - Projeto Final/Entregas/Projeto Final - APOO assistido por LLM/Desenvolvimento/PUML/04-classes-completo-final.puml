@@ -1,0 +1,247 @@
+@startuml
+skinparam linetype polyline
+
+class Usuario {
+  - id: UUID
+  - nome: String
+  - email: String
+  - senhaHash: String
+  - telefone: String
+  - ativo: Boolean
+  + cadastrarUsuario(nome: String, email: String, telefone: String)
+  + atualizarStatus(ativo: Boolean)
+  + obterContatoPreferencial(): String
+}
+
+class Passageiro {
+  - cpf: String
+  - dataNascimento: Date
+}
+
+class EmpresaViacao {
+  - cnpj: String
+  - razaoSocial: String
+  - nomeFantasia: String
+  + habilitarViacao(cnpj: String, razaoSocial: String)
+  + obterDadosViacao(): String
+}
+
+class Motorista {
+  - cnh: String
+  - categoriaCnh: String
+  + consultarEscala(dataInicio: Date, dataFim: Date): List<Viagem>
+}
+
+class Administrador {
+  - nivelAcesso: String
+  + registrarAlertaOperacional(descricao: String)
+}
+
+class Rota {
+  - id: UUID
+  - origem: String
+  - destino: String
+  - paradas: List<String>
+  - distanciaKm: Double
+  - duracaoEstimadaMin: Integer
+  - ativa: Boolean
+  + cadastrarRota(origem: String, destino: String, paradas: List<String>, distanciaKm: Double, duracaoMin: Integer)
+  + atualizarRota(paradas: List<String>, ativa: Boolean)
+  + validarConsistencia(): Boolean
+  + obterDetalhesTrajeto(): String
+}
+
+class Onibus {
+  - id: UUID
+  - placa: String
+  - prefixo: String
+  - categoria: String
+  - capacidadeAssentos: Integer
+  + listarAssentos(): List<Assento>
+  + verificarDisponibilidadeHorario(dataPartida: DateTime, dataChegada: DateTime): Boolean
+  + obterIdentificacao(): String
+}
+
+class Assento {
+  - id: UUID
+  - numero: String
+  - tipo: String
+  - posicao: String
+  - status: String
+  + verificarDisponibilidade(): Boolean
+  + marcarReservado()
+  + confirmarOcupacao()
+  + liberarAssento()
+}
+
+class Viagem {
+  - id: UUID
+  - dataPartida: DateTime
+  - dataChegadaPrevista: DateTime
+  - preco: Decimal
+  - status: String
+  + buscarDisponiveis(origem: String, destino: String, data: Date): List<Viagem>
+  + compararOpcoes(criterioOrdenacao: String): List<Viagem>
+  + obterMapaAssentos(): List<Assento>
+  + agendarHorario(rota: Rota, dataPartida: DateTime, dataChegada: DateTime)
+  + verificarBilhetesEmitidos(): Boolean
+  + definirPreco(preco: Decimal)
+  + vincularOnibus(onibus: Onibus)
+  + listarPorEmpresa(empresa: EmpresaViacao, periodoInicio: Date, periodoFim: Date): List<Viagem>
+  + listarPorMotorista(motorista: Motorista, dataInicio: Date, dataFim: Date): List<Viagem>
+  + validarAlocacaoMotorista(motorista: Motorista): Boolean
+}
+
+class Reserva {
+  - id: UUID
+  - dataCriacao: DateTime
+  - expiraEm: DateTime
+  - dadosViajantes: String
+  - status: String
+  + criarReservaTemporaria(passageiro: Passageiro, viagem: Viagem, assentos: List<Assento>): Reserva
+  + registrarDadosViajantes(dadosViajantes: String)
+  + verificarExpiracao(): Boolean
+  + obterResumoPagamento(): String
+  + confirmarReserva()
+  + contarAtivasPorViagem(viagem: Viagem): Integer
+  + consultarReservasEmAndamento(): List<Reserva>
+}
+
+class Bilhete {
+  - id: UUID
+  - codigoLocalizador: String
+  - qrCode: String
+  - nomeViajante: String
+  - documentoViajante: String
+  - dataEmissao: DateTime
+  - status: String
+  + emitirBilhete(reserva: Reserva, assento: Assento): Bilhete
+  + consultarPorPassageiro(passageiro: Passageiro): List<Bilhete>
+  + validarElegibilidadePosVenda(): Boolean
+  + contarVendidosPorViagem(viagem: Viagem): Integer
+  + atualizarStatus(novoStatus: String)
+  + listarPassageirosConfirmados(viagem: Viagem): List<Bilhete>
+  + filtrarPassageiro(termo: String): List<Bilhete>
+  + consolidarVolumeVendas(periodoInicio: Date, periodoFim: Date): Integer
+}
+
+class Pagamento {
+  - id: UUID
+  - valor: Decimal
+  - metodo: String
+  - transacaoExternaId: String
+  - dataProcessamento: DateTime
+  - status: String
+  + iniciarPagamento(reserva: Reserva, metodo: String): Pagamento
+  + registrarResultado(transacaoId: String, status: String)
+  + solicitarEstorno(valor: Decimal)
+  + consultarTransacoesRecentes(): List<Pagamento>
+  + consolidarFaturamento(periodoInicio: Date, periodoFim: Date): Decimal
+}
+
+class SolicitacaoPosVenda {
+  - id: UUID
+  - tipo: String
+  - motivo: String
+  - dataSolicitacao: DateTime
+  - valorReembolso: Decimal
+  - status: String
+  + registrarSolicitacao(bilhete: Bilhete, tipo: String, motivo: String): SolicitacaoPosVenda
+  + listarPendentes(empresa: EmpresaViacao): List<SolicitacaoPosVenda>
+  + aprovarSolicitacao(valorReembolso: Decimal)
+  + recusarSolicitacao(motivo: String)
+}
+
+class Notificacao {
+  - id: UUID
+  - canal: String
+  - destinatario: String
+  - conteudo: String
+  - dataEnvio: DateTime
+  - statusEnvio: String
+  + dispararNotificacao(usuario: Usuario, canal: String, conteudo: String)
+  + comporMensagem(destinatario: String, canal: String, conteudo: String): String
+  + atualizarStatusEnvio(status: String)
+  + consultarFilaEnvios(): List<Notificacao>
+}
+
+class Relatorio {
+  - id: UUID
+  - tipo: String
+  - periodoInicio: Date
+  - periodoFim: Date
+  - geradoEm: DateTime
+  - formato: String
+  + configurarRelatorio(tipo: String, periodoInicio: Date, periodoFim: Date, formato: String)
+  + agregarDados(dadosBrutos: String)
+  + exportar(formato: String): File
+}
+
+class ConfiguracaoIntegracao {
+  - id: UUID
+  - provedor: String
+  - endpoint: String
+  - chaveApi: String
+  - ativo: Boolean
+  + atualizarConfiguracao(provedor: String, endpoint: String, chaveApi: String, ativo: Boolean)
+  + validarParametros(): Boolean
+}
+
+class GatewayPagamento {
+  - provedor: String
+  - timeoutMs: Integer
+  + processarTransacao(valor: Decimal, metodo: String): String
+  + estornarTransacao(transacaoId: String, valor: Decimal): Boolean
+}
+
+class ServicoNotificacoes {
+  - provedor: String
+  - canaisSuportados: String
+  + enviarMensagem(canal: String, destinatario: String, conteudo: String): Boolean
+}
+
+Passageiro --|> Usuario
+EmpresaViacao --|> Usuario
+Motorista --|> Usuario
+Administrador --|> Usuario
+
+EmpresaViacao "1" -- "1..*" Rota : cadastra
+EmpresaViacao "1" -- "1..*" Onibus : possui
+EmpresaViacao "1" -- "0..*" Motorista : aloca
+EmpresaViacao "1" -- "0..*" Viagem : oferta
+
+Onibus "1" *-- "1..*" Assento : compoe
+
+Viagem "0..*" --> "1" Rota : segue
+Viagem "0..*" --> "1" Onibus : utiliza
+Viagem "0..*" --> "0..1" Motorista : conduzida por
+
+Passageiro "1" -- "0..*" Reserva : realiza
+Passageiro "1" -- "0..*" Bilhete : possui
+
+Reserva "0..*" --> "1" Viagem : refere-se a
+Reserva "0..*" -- "1..*" Assento : bloqueia
+Reserva "1" -- "0..1" Pagamento : gera
+
+Pagamento "0..*" ..> "1" GatewayPagamento : processa via
+Pagamento "1" -- "0..*" Bilhete : confirma
+
+Bilhete "0..*" --> "1" Viagem : vincula-se a
+Bilhete "0..*" --> "1" Assento : ocupa
+Bilhete "1" -- "0..*" SolicitacaoPosVenda : origina
+
+SolicitacaoPosVenda "0..*" --> "0..1" EmpresaViacao : analisada por
+SolicitacaoPosVenda "0..1" ..> "0..1" Pagamento : estorna via
+
+Notificacao "0..*" --> "1" Usuario : enviada para
+Notificacao "0..*" ..> "1" ServicoNotificacoes : dispara via
+Bilhete "0..1" ..> "0..*" Notificacao : notifica
+Reserva "0..1" ..> "0..*" Notificacao : notifica
+SolicitacaoPosVenda "0..1" ..> "0..*" Notificacao : notifica
+
+Administrador "1" -- "0..*" ConfiguracaoIntegracao : gerencia
+Administrador "1" ..> "0..*" Reserva : monitora
+Administrador "1" ..> "0..*" Pagamento : monitora
+Administrador "1" ..> "0..*" Notificacao : monitora
+Administrador "1" -- "0..*" Relatorio : gera
+@enduml

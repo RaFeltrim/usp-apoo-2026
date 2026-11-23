@@ -1,0 +1,29 @@
+@startuml
+actor "Administrador da Plataforma" as Administrador
+participant "adm : Administrador" as AdminObj
+participant "res : Reserva" as Reserva
+participant "pag : Pagamento" as Pagamento
+participant "n : Notificacao" as Notificacao
+
+Administrador -> Reserva : consultarReservasEmAndamento()
+activate Reserva
+Reserva --> Administrador : statusReservas
+deactivate Reserva
+
+Administrador -> Pagamento : consultarTransacoesRecentes()
+activate Pagamento
+Pagamento --> Administrador : statusPagamentos
+deactivate Pagamento
+
+Administrador -> Notificacao : consultarFilaEnvios()
+activate Notificacao
+Notificacao --> Administrador : statusNotificacoes
+deactivate Notificacao
+
+opt falha ou gargalo detectado
+  Administrador -> AdminObj : registrarAlertaOperacional(descricao)
+  activate AdminObj
+  AdminObj --> Administrador : alertaRegistrado
+  deactivate AdminObj
+end
+@enduml

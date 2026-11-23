@@ -2,12 +2,12 @@
 
 > **Formato obrigatório (Item 1 do enunciado):**  
 > `Como [tipo de usuário / persona], eu quero [uma ação ou funcionalidade], para que [um benefício ou valor gerado].`  
-> **Status:** Rascunho inicial derivado da *Descrição geral do sistema a ser modelado* ([`Projeto Final - APOO assistido por LLM.docx.pdf`](<../../../Material%20de%20Apoio/Projeto%20Final%20-%20APOO%20assistido%20por%20LLM.docx.pdf>)). Revisar antes de subir na Base de Conhecimento do Gem `APOO`.
+> **Status:** Revisado com cobertura integral da *Descrição geral do sistema a ser modelado* ([`Projeto Final - APOO assistido por LLM.docx.pdf`](<../../../Material%20de%20Apoio/Projeto%20Final%20-%20APOO%20assistido%20por%20LLM.docx.pdf>)) e pronto para a Base de Conhecimento do Gem `APOO`.
 
 ## Passageiro
 
 - **HU01:** Como **Passageiro**, eu quero pesquisar viagens informando origem, destino e data desejada, para que eu encontre as opções de deslocamento disponíveis entre diferentes cidades.
-- **HU02:** Como **Passageiro**, eu quero comparar preços e horários de viagens oferecidas por diferentes empresas de viação parceiras, para que eu escolha a opção com melhor custo-benefício e conveniência.
+- **HU02:** Como **Passageiro**, eu quero comparar preços e horários de viagens oferecidas por diferentes empresas de viação parceiras (ex.: Cometa, 1001, Catarinense), para que eu escolha a opção com melhor custo-benefício e conveniência.
 - **HU03:** Como **Passageiro**, eu quero visualizar o mapa de poltronas e selecionar assentos específicos do ônibus, para que eu garanta os lugares de minha preferência na viagem.
 - **HU04:** Como **Passageiro**, eu quero reservar temporariamente os assentos selecionados enquanto preencho os dados dos viajantes, para que outros compradores não ocupem os mesmos lugares durante a finalização da compra.
 - **HU05:** Como **Passageiro**, eu quero efetuar o pagamento da passagem online por meio de integração com plataforma de pagamento externa, para que minha compra seja aprovada e confirmada com segurança.

@@ -1,0 +1,32 @@
+@startuml
+actor "Administrador da Plataforma" as Administrador
+participant "u : Usuario" as Usuario
+participant "ev : EmpresaViacao" as EmpresaViacao
+participant "ci : ConfiguracaoIntegracao" as ConfiguracaoIntegracao
+
+alt gerenciar usuario
+  Administrador -> Usuario : cadastrarUsuario(nome, email, telefone)
+  activate Usuario
+  Usuario --> Administrador : usuarioSalvo
+  opt alterar status de acesso
+    Administrador -> Usuario : atualizarStatus(ativo)
+    Usuario --> Administrador : statusAtualizado
+  end
+  deactivate Usuario
+else habilitar viacao parceira
+  Administrador -> EmpresaViacao : habilitarViacao(cnpj, razaoSocial)
+  activate EmpresaViacao
+  EmpresaViacao --> Administrador : viacaoHabilitada
+  deactivate EmpresaViacao
+else configurar integracao externa
+  Administrador -> ConfiguracaoIntegracao : atualizarConfiguracao(provedor, endpoint, chaveApi, ativo)
+  activate ConfiguracaoIntegracao
+  ConfiguracaoIntegracao -> ConfiguracaoIntegracao : validarParametros()
+  alt parametros validos
+    ConfiguracaoIntegracao --> Administrador : configuracaoAplicada
+  else parametros invalidos
+    ConfiguracaoIntegracao --> Administrador : erroParametrosInvalidos
+  end
+  deactivate ConfiguracaoIntegracao
+end
+@enduml

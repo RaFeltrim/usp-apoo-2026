@@ -1,0 +1,62 @@
+@startuml
+left to right direction
+
+actor "Usuário" as Usuario
+actor "Passageiro" as Passageiro
+actor "Empresa de Viação" as EmpresaViacao
+actor "Motorista" as Motorista
+actor "Administrador da Plataforma" as Administrador
+actor "Plataforma de Pagamento" as PlataformaPagamento <<Sistema Externo>>
+actor "Serviço de Notificações" as ServicoNotificacoes <<Sistema Externo>>
+
+Passageiro --|> Usuario
+EmpresaViacao --|> Usuario
+Motorista --|> Usuario
+Administrador --|> Usuario
+
+rectangle "Plataforma ClickBus" {
+  usecase "UC01 - Pesquisar e Comparar Viagens" as UC01
+  usecase "UC02 - Selecionar e Reservar Assentos" as UC02
+  usecase "UC03 - Efetuar Pagamento Online" as UC03
+  usecase "UC04 - Receber Bilhete e Notificações" as UC04
+  usecase "UC05 - Solicitar Cancelamento, Alteração ou Reembolso" as UC05
+
+  usecase "UC06 - Cadastrar e Atualizar Rotas e Horários" as UC06
+  usecase "UC07 - Definir Preços e Vincular Ônibus" as UC07
+  usecase "UC08 - Acompanhar Vendas de Viagens" as UC08
+  usecase "UC09 - Gerenciar Cancelamentos, Reembolsos e Alterações" as UC09
+
+  usecase "UC10 - Consultar Viagens Alocadas" as UC10
+  usecase "UC11 - Consultar Lista de Passageiros" as UC11
+
+  usecase "UC12 - Gerenciar Cadastros e Configurações Globais" as UC12
+  usecase "UC13 - Monitorar Operações em Andamento" as UC13
+  usecase "UC14 - Gerar Relatórios Financeiros e Operacionais" as UC14
+}
+
+Passageiro -- UC01
+Passageiro -- UC02
+Passageiro -- UC03
+Passageiro -- UC04
+Passageiro -- UC05
+
+EmpresaViacao -- UC06
+EmpresaViacao -- UC07
+EmpresaViacao -- UC08
+EmpresaViacao -- UC09
+
+Motorista -- UC10
+Motorista -- UC11
+
+Administrador -- UC12
+Administrador -- UC13
+Administrador -- UC14
+
+UC02 ..> UC01 : <<extend>>
+UC03 ..> UC04 : <<include>>
+UC09 ..> UC04 : <<include>>
+
+UC03 -- PlataformaPagamento
+UC09 -- PlataformaPagamento
+UC04 -- ServicoNotificacoes
+@enduml

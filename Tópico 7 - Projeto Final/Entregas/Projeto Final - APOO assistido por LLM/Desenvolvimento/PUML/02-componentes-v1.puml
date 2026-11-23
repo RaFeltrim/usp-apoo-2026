@@ -1,0 +1,15 @@
+@startuml
+left to right direction
+
+package "Plataforma ClickBus" {
+  component "Portal Web / Interface do Usuário" as PortalWeb
+  component "Gestão de Usuários e Autenticação" as GestaoUsuarios
+  component "Catálogo de Viagens, Rotas e Frota" as CatalogoViagens
+  component "Reservas, Assentos e Bilhetes" as ReservasBilhetes
+  component "Pagamentos e Pós-Venda" as PagamentosPosVenda
+  component "Monitoramento e Relatórios Gerenciais" as MonitoramentoRelatorios
+}
+
+component "Plataforma de Pagamento" as PlataformaPagamento <<Sistema Externo>>
+component "Serviço de Notificações" as ServicoNotificacoes <<Sistema Externo>>
+@enduml

@@ -1,0 +1,46 @@
+@startuml
+actor "Empresa de Viação" as EmpresaViacao
+participant "spv : SolicitacaoPosVenda" as SolicitacaoPosVenda
+participant "pag : Pagamento" as Pagamento
+participant "gp : GatewayPagamento" as GatewayPagamento
+participant "b : Bilhete" as Bilhete
+participant "a : Assento" as Assento
+
+EmpresaViacao -> SolicitacaoPosVenda : listarPendentes(empresa)
+activate SolicitacaoPosVenda
+SolicitacaoPosVenda --> EmpresaViacao : filaSolicitacoes
+
+alt solicitacao aprovada
+  EmpresaViacao -> SolicitacaoPosVenda : aprovarSolicitacao(valorReembolso)
+  opt envolve reembolso financeiro
+    SolicitacaoPosVenda -> Pagamento : solicitarEstorno(valor)
+    activate Pagamento
+    Pagamento -> GatewayPagamento : estornarTransacao(transacaoId, valor)
+    activate GatewayPagamento
+    alt estorno aprovado
+      GatewayPagamento --> Pagamento : estornoConfirmado
+      Pagamento --> SolicitacaoPosVenda : reembolsoConcluido
+    else falha no estorno externo
+      GatewayPagamento --> Pagamento : erroEstorno
+      Pagamento --> SolicitacaoPosVenda : alertaReprocessamento
+    end
+    deactivate GatewayPagamento
+    deactivate Pagamento
+  end
+  SolicitacaoPosVenda -> Bilhete : atualizarStatus(novoStatus)
+  activate Bilhete
+  Bilhete --> SolicitacaoPosVenda : bilheteAtualizado
+  deactivate Bilhete
+  SolicitacaoPosVenda -> Assento : liberarAssento()
+  activate Assento
+  Assento --> SolicitacaoPosVenda : assentoLiberado
+  deactivate Assento
+  SolicitacaoPosVenda --> EmpresaViacao : atendimentoConcluido
+  ref over EmpresaViacao, SolicitacaoPosVenda, Bilhete : UC04 - Receber Bilhete e Notificações
+else solicitacao recusada
+  EmpresaViacao -> SolicitacaoPosVenda : recusarSolicitacao(motivo)
+  SolicitacaoPosVenda --> EmpresaViacao : recusaRegistrada
+  ref over EmpresaViacao, SolicitacaoPosVenda, Bilhete : UC04 - Receber Bilhete e Notificações
+end
+deactivate SolicitacaoPosVenda
+@enduml

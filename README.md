@@ -146,9 +146,10 @@ APOO - USP/
 │   │   └── Estrutura de relatório.docx.pdf
 │   └── 📁 Entregas/
 │       └── 📁 Projeto Final - APOO assistido por LLM/
-│           ├── README.md                                 # Checklist por capítulos 1–7, reflexões e apêndices
-│           ├── 📁 Pacote-ZIP/                            # Espelho limpo: Diagramas/*.png + Prompts/ + futuro Relatorio.pdf
-│           └── 📁 Desenvolvimento/                       # Historias-de-Usuario.md, .puml e antes/depois
+│           ├── README.md                                 # Checklist por capítulos 1–7, reflexões, apêndices e Item 4
+│           ├── Projeto_Final_APOO_LLM_Rafael_Feltrim.zip # Pacote .zip único pronto p/ envio (3,75 MB)
+│           ├── 📁 Pacote-ZIP/                            # Espelho limpo: Relatorio.pdf + 18 Diagramas/*.png + 7 Prompts/*.md
+│           └── 📁 Desenvolvimento/                       # Historias-de-Usuario.md, Descricoes-Textuais-UC.md, 23 .puml e antes/depois
 │
 ├── 📁 Exemplos de Prova/                                 # Preparação para a Prova Final (07/12)
 │   ├── README.md                                         # Mapa de temas cobrados → Tópicos do repositório
@@ -178,8 +179,8 @@ APOO - USP/
 | **Atividade 4 (Casos de Uso)** | Diagrama Geral de Casos de Uso (Sistema Rodoviário / ClickBus) | 21/09/2026 | ✅ **Entregue** | [`Atividade - casos de uso.docx.pdf`](./Tópico%204%20-%20Especificacao%20de%20Requisitos%20e%20Casos%20de%20Uso/Entregas/Atividade%20-%20Casos%20de%20Uso/Atividade%20-%20casos%20de%20uso.docx.pdf) |
 | **Atividade 5 (Texto & Atividades)** | Descrição Textual de Casos de Uso e Diagrama de Atividades | 28/09/2026 | ✅ **Entregue** | [`Descrição Textual de Casos de Uso e Diagrama de Atividades - Rafael Feltrim.pdf`](./Tópico%204%20-%20Especificacao%20de%20Requisitos%20e%20Casos%20de%20Uso/Entregas/Atividade%20-%20Descricao%20Textual%20e%20Diagrama%20de%20Atividades/Descrição%20Textual%20de%20Casos%20de%20Uso%20e%20Diagrama%20de%20Atividades%20-%20Rafael%20Feltrim.pdf) |
 | **Atividade 6 (Componentes & Classes)** | Identificação de Componentes, MVC e Modelo Conceitual de Classes | 14/10/2026 | ✅ **Entregue** | [`Atividade – Identificação de Componentes e Classes do Sistema.pdf`](./Tópico%205%20-%20Componentes,%20Modelo%20Conceitual%20e%20Classes/Entregas/Atividade%20-%20Identificacao%20de%20Componentes%20e%20Classes/Atividade%20–%20Identificação%20de%20Componentes%20e%20Classes%20do%20Sistema.pdf) |
-| **Atividade 7 (Diagrama de Sequências)** | Diagramas de Sequência e Classes com Métodos (`Comprar Passagem`) | 16/11/2026 (12:00) | 📦 **PDF pronto p/ envio** | [`Atividade - Diagrama de Sequencias - Rafael Feltrim.pdf`](./Tópico%206%20-%20Diagrama%20de%20Sequencias/Entregas/Atividade%20-%20Diagrama%20de%20Sequencias/Atividade%20-%20Diagrama%20de%20Sequencias%20-%20Rafael%20Feltrim.pdf) |
-| **Projeto Final (35% da Média)** | **APOO assistido por LLM** (`Individual · Gemini + PlantUML`) | 14/12/2026 | 🚀 **Enunciado publicado (16/11)** | [`Tópico 7 - Projeto Final`](./Tópico%207%20-%20Projeto%20Final/README.md) · [`Área do Projeto`](./Tópico%207%20-%20Projeto%20Final/Entregas/Projeto%20Final%20-%20APOO%20assistido%20por%20LLM/README.md) |
+| **Atividade 7 (Diagrama de Sequências)** | Diagramas de Sequência e Classes com Métodos (`Comprar Passagem`) | 16/11/2026 (12:00) | ✅ **Entregue** | [`Atividade - Diagrama de Sequencias - Rafael Feltrim.pdf`](./Tópico%206%20-%20Diagrama%20de%20Sequencias/Entregas/Atividade%20-%20Diagrama%20de%20Sequencias/Atividade%20-%20Diagrama%20de%20Sequencias%20-%20Rafael%20Feltrim.pdf) |
+| **Projeto Final (35% da Média)** | **APOO assistido por LLM** (`Individual · Gemini + PlantUML`) | 14/12/2026 | 📦 **`.zip` pronto para envio até 14/12 — pendente apenas questionário Item 4** | [`Projeto_Final_APOO_LLM_Rafael_Feltrim.zip`](./Tópico%207%20-%20Projeto%20Final/Entregas/Projeto%20Final%20-%20APOO%20assistido%20por%20LLM/Projeto_Final_APOO_LLM_Rafael_Feltrim.zip) · [`Relatorio.pdf`](./Tópico%207%20-%20Projeto%20Final/Entregas/Projeto%20Final%20-%20APOO%20assistido%20por%20LLM/Pacote-ZIP/Relatorio.pdf) |
 | **Prova Final (40% da Média)** | Avaliação geral de APOO *(Sub em 14/12 com justificativa)* | 07/12/2026 | ⏳ **Prevista** | [`Exemplos de Prova`](./Exemplos%20de%20Prova/README.md) · [`Cronograma`](./Tópico%200%20-%20Informacoes%20Gerais/README.md) |
 
 ---

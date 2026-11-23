@@ -1,0 +1,31 @@
+@startuml
+actor "Administrador da Plataforma" as Administrador
+participant "rel : Relatorio" as Relatorio
+participant "pag : Pagamento" as Pagamento
+participant "b : Bilhete" as Bilhete
+
+Administrador -> Relatorio : configurarRelatorio(tipo, periodoInicio, periodoFim, formato)
+activate Relatorio
+
+Relatorio -> Pagamento : consolidarFaturamento(periodoInicio, periodoFim)
+activate Pagamento
+Pagamento --> Relatorio : dadosFinanceiros
+deactivate Pagamento
+
+Relatorio -> Bilhete : consolidarVolumeVendas(periodoInicio, periodoFim)
+activate Bilhete
+Bilhete --> Relatorio : dadosOperacionais
+deactivate Bilhete
+
+alt existem dados no periodo
+  Relatorio -> Relatorio : agregarDados(dadosBrutos)
+  Relatorio --> Administrador : relatorioConsolidado
+  opt administrador solicita exportacao
+    Administrador -> Relatorio : exportar(formato)
+    Relatorio --> Administrador : arquivoExportado
+  end
+else nenhum dado no periodo
+  Relatorio --> Administrador : avisoSemRegistros
+end
+deactivate Relatorio
+@enduml

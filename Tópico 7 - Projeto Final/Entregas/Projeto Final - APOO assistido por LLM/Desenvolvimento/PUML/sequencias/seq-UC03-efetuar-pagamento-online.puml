@@ -1,0 +1,46 @@
+@startuml
+actor Passageiro
+participant "res : Reserva" as Reserva
+participant "pag : Pagamento" as Pagamento
+participant "gp : GatewayPagamento" as GatewayPagamento
+participant "b : Bilhete" as Bilhete
+participant "a : Assento" as Assento
+
+Passageiro -> Reserva : obterResumoPagamento()
+activate Reserva
+Reserva -> Reserva : verificarExpiracao()
+alt reserva valida
+  Reserva --> Passageiro : resumoCompra
+  Passageiro -> Pagamento : iniciarPagamento(reserva, metodo)
+  activate Pagamento
+  Pagamento -> GatewayPagamento : processarTransacao(valor, metodo)
+  activate GatewayPagamento
+
+  alt pagamento aprovado
+    GatewayPagamento --> Pagamento : confirmacaoAprovada
+    deactivate GatewayPagamento
+    Pagamento -> Pagamento : registrarResultado(transacaoId, status)
+    Pagamento -> Reserva : confirmarReserva()
+    Reserva -> Assento : confirmarOcupacao()
+    activate Assento
+    Assento --> Reserva : ocupado
+    deactivate Assento
+    loop para cada assento da reserva
+      Pagamento -> Bilhete : emitirBilhete(reserva, assento)
+      activate Bilhete
+      Bilhete --> Pagamento : bilheteEmitido
+      deactivate Bilhete
+    end
+    Pagamento --> Passageiro : pagamentoConfirmado
+    ref over Passageiro, Reserva, Bilhete : UC04 - Receber Bilhete e Notificações
+  else pagamento recusado ou falha externa
+    GatewayPagamento --> Pagamento : erroOuRecusa
+    Pagamento -> Pagamento : registrarResultado(transacaoId, status)
+    Pagamento --> Passageiro : avisoFalhaPagamento
+  end
+  deactivate Pagamento
+else reserva expirada
+  Reserva --> Passageiro : avisoReservaExpirada
+end
+deactivate Reserva
+@enduml

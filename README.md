@@ -7,6 +7,7 @@
 [![USP ICMC](https://img.shields.io/badge/USP-ICMC-00529B?style=for-the-badge)](https://www.icmc.usp.br/)
 [![Disciplina SSC0124](https://img.shields.io/badge/Disciplina-SSC0124-2ea44f?style=for-the-badge)](https://edisciplinas.usp.br/course/view.php?id=143121)
 [![Conteúdo acadêmico](https://img.shields.io/badge/Conteúdo-Acadêmico-8A2BE2?style=for-the-badge)](#-estrutura-oficial-do-repositório-por-módulos--semanas)
+[![GitHub Project](https://img.shields.io/badge/Rastreabilidade-GitHub%20Project%20%236-1f883d?style=for-the-badge&logo=github)](https://github.com/users/RaFeltrim/projects/6)
 [![Autor Rafael Feltrim](https://img.shields.io/badge/Autor-Rafael%20Feltrim-0A66C2?style=for-the-badge)](https://github.com/RaFeltrim)
 
 <p align="center">
@@ -16,6 +17,7 @@
 [Informações gerais](#-informações-gerais) •
 [Estrutura do repositório](#-estrutura-oficial-do-repositório-por-módulos--semanas) •
 [Atividades e entregas](#-mapa-geral-de-atividades--entregas-da-disciplina) •
+[GitHub Project](https://github.com/users/RaFeltrim/projects/6) •
 [Como navegar](#-como-navegar) •
 [Autoria](#-autor)
 
@@ -200,6 +202,7 @@ APOO - USP/
 | Localizar trabalhos | Tabela **Mapa Geral de Atividades & Entregas** e pastas **Entregas** |
 | Consultar exemplos e relatórios web | Arquivos HTML e pasta **Apresentacao-Web** nas entregas de padrões GoF |
 | Preparar para a Prova Final | Pasta **Exemplos de Prova** (provas 2024-2 e 2026 + mapa de temas) |
+| Acompanhar entregas, Swarm Boards e pendências | [GitHub Project #6](https://github.com/users/RaFeltrim/projects/6) ([aba Projects do repositório](https://github.com/RaFeltrim/usp-apoo-2026/projects)) |
 
 Este repositório reúne materiais acadêmicos; não possui um comando único de instalação, execução ou testes documentado. Cada entrega deve ser consultada em seu contexto.
 
